@@ -1,5 +1,6 @@
 // file deepcode ignore PrototypePollutionFunctionParams: File is part of sphinx code
-// file deepcode ignore AmbiguousConditional: <comment the reason here>
+// file deepcode ignore AmbiguousConditional: File is part of sphinx code
+// file deepcode ignore FunctionDeclarationInBlock: File is part of sphinx code
 /*
  * searchtools.js
  * ~~~~~~~~~~~~~~~~

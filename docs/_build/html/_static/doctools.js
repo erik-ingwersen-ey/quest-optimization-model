@@ -1,4 +1,5 @@
 // file deepcode ignore PrototypePollution: File is part of sphinx code
+// file deepcode ignore valid-jsdoc: File is part of sphinx code
 /*
  * doctools.js
  * ~~~~~~~~~~~

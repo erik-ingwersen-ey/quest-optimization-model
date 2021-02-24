@@ -1,3 +1,5 @@
+// file deepcode ignore PrototypePollutionFunctionParams: File is part of sphinx code
+
 /*
  * searchtools.js
  * ~~~~~~~~~~~~~~~~

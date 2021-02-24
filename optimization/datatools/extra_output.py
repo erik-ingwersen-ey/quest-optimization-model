@@ -393,13 +393,10 @@ class FindLot:
             if lot_status.shape[0] == 0:
                 return not_found  # same as "not found"
 
-            else:
-                if lot_status[Columns.bu_item_last_lot_depleted].iloc[0] == 'Y':
-                    return in_use   # same as "in use"
-                else:
-                    if item_status[item_status[Columns.bu_item_last_lot_depleted] == 'Y'].shape[0] == 0 and \
-                            lot_status[Columns.date_lot_added_to_bu_inv].iloc[0] == min(item_status[Columns.date_lot_added_to_bu_inv]):
-                        return in_use  # same as "in use"
+            elif (lot_status[Columns.bu_item_last_lot_depleted].iloc[0] == 'Y') or \
+            (item_status[item_status[Columns.bu_item_last_lot_depleted] == 'Y'].shape[0] == 0 and 
+             lot_status[Columns.date_lot_added_to_bu_inv].iloc[0] == min(item_status[Columns.date_lot_added_to_bu_inv])):
+                return in_use  # same as "in use"
 
             return in_inventory  # same as "in inventory"
 

@@ -1,5 +1,6 @@
 // file deepcode ignore UncomaparableValues:  File is part of sphinx code
 // file deepcode ignore prefer-rest-params: File is part of sphinx code
+// file deepcode ignore PrototypePollutionFunctionParams: File is part of sphinx code
 
 //     Underscore.js 1.3.1
 //     (c) 2009-2012 Jeremy Ashkenas, DocumentCloud Inc.

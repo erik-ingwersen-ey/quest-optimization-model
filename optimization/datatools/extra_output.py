@@ -1,6 +1,6 @@
 """Extra output scripts for creating output columns to optimization model.
-
 """
+from typing import Union
 import logging
 import pandas as pd
 
@@ -69,7 +69,7 @@ def extra_output(inventory_report: pd.DataFrame) -> pd.DataFrame:
     **Steps:**
         1. Select necessary columns.
 
-        2. Rename necessary columns according to their specified names.
+        2. Rename selected columns according to their specified names.
 
     Parameters
     ----------
@@ -153,7 +153,7 @@ def classify_row(row: pd.Series, inventory_report: pd.DataFrame) -> str:
         return surplus_rows(receiver_status, sender_status)
 
 
-def get_status(inventory_report: pd.DataFrame, row: pd.Series, what: str = "both") -> str:
+def get_status(inventory_report: pd.DataFrame, row: pd.Series, what: str = "both") -> Union[str, tuple]:
     """Get status of Lot for receiver and sender BU.
 
     Parameters
@@ -167,8 +167,8 @@ def get_status(inventory_report: pd.DataFrame, row: pd.Series, what: str = "both
 
     Returns
     -------
-    str : Status of lot at receiver bu and sender bu
-
+    Union[str, tuple] : Status of lot at receiver and sender BU if objective function is set to 'both', else returns only
+    in one of them
     """
     receiver_bu = row["Receiver BU ID"]
     item_id, lot_id = row["Item ID"], row["Source Lot ID"]
@@ -393,12 +393,15 @@ class FindLot:
             if lot_status.shape[0] == 0:
                 return not_found  # same as "not found"
 
-            elif (lot_status[Columns.bu_item_last_lot_depleted].iloc[0] == 'Y') or \
-            (item_status[item_status[Columns.bu_item_last_lot_depleted] == 'Y'].shape[0] == 0 and
-             lot_status[Columns.date_lot_added_to_bu_inv].iloc[0] == min(item_status[Columns.date_lot_added_to_bu_inv])):
-                return in_use   # same as "in use"
-        
-        return in_inventory  # same as "in inventory"
+            else:
+                if lot_status[Columns.bu_item_last_lot_depleted].iloc[0] == 'Y':
+                    return in_use   # same as "in use"
+                else:
+                    if item_status[item_status[Columns.bu_item_last_lot_depleted] == 'Y'].shape[0] == 0 and \
+                            lot_status[Columns.date_lot_added_to_bu_inv].iloc[0] == min(item_status[Columns.date_lot_added_to_bu_inv]):
+                        return in_use  # same as "in use"
+
+            return in_inventory  # same as "in inventory"
 
     def expire_status(self, receiver_doi: int) -> str:
         """Get status for transfers made due to expiring items"""

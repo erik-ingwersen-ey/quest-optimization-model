@@ -50,6 +50,7 @@ MIN_SHIPMENT_VALUE = 50
 """Default value for minimum shipment in dollars if values are not found on the inventory report
 """
 
+
 class Columns:
     """Specify inventory input report column names.
 
@@ -240,7 +241,7 @@ class Columns:
         bu_region, contact_email, supplier_name, on_site_email,
         std_uom, chart_of_accounts, bu_address, bu_description,
         item_stats, bu_item_qty_in_transf, minimum_days_of_inventory_for_lot,
-        date_lot_added_to_bu_inv, default_shipment_days, bu_item_last_lot_depleted,]
+        date_lot_added_to_bu_inv, default_shipment_days, bu_item_last_lot_depleted, ]
     """List of columns needed, either to calculate necessary information used by the optimization model or
     columns that are required to be added to final report
     """

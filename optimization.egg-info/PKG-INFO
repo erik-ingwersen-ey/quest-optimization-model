@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: optimization
+Version: 1.1.3
+Summary: Inventory optimization model.
+Home-page: UNKNOWN
+Author: Erik Ingwersen
+Author-email: erik.ingwersen@br.ey.com
+License: EY & Quest Diagnostics
+Description: Source code for project to optimize inventory balance and minize items to expire for Quest Diagnostics based o transfers between Business Units
+Platform: Python

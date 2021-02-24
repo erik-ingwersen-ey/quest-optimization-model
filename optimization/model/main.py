@@ -1,11 +1,10 @@
-"""Main module used for defining the scripts needed for running the optimization model.
+"""Main module used for running the optimization model.
 """
-__version__ = '0.8'
+__version__ = '1.8'
 __author__ = 'EY'
 
 import logging
 import os
-
 import pandas as pd
 
 ##  Optimization Module Imports  #####################################
@@ -22,6 +21,13 @@ from optimization.logconfig import logconfiguration
 from optimization.model.optimizer import OptimizationModel
 from optimization.opt_tools.aux_funcs import save_results
 from optimization.solspace import SolutionSpace
+
+
+##  Module Constants  #####################################
+ITEM_ID = "Item ID"
+ITEMS_TO_EXPIRE = "Items to Expire"
+INV_BALANCE = "Inventory Balance"
+TRANSFER_VALUE = "$ Value of Transfer"
 
 try:
     from tqdm import tqdm
@@ -40,27 +46,39 @@ class ModelOptimization:
 
     This class defines the optimization problem for every item on the inventory report and
     returns a combined DataFrame with all transfer recommendations.
-
-    Returns
-    -------
-    pd.DataFrame
-        Optimization Model transfer recommendations.
-
-    Raises
-    ------
-    TypeError
-        Raises error if ``df_inventory`` is not of type ``pd.DataFrame``.
-
     """
-    transfer_value = "$ Value of Transfer"
-    qty_to_optimize = {"Item ID": [], "Inventory Balance": [], "Items to Expire": [], transfer_value: [], }
+
+    qty_to_optimize = {ITEM_ID: [], INV_BALANCE: [], ITEMS_TO_EXPIRE: [], TRANSFER_VALUE: [], }
+    """Dictionary used to store calculated value representing maximum $ amount of inventory balance
+    and items to expire optimizable per item ID
+    """
 
     def __init__(self, df_inventory: pd.DataFrame, optimize_what: str, sku_qty: int = 0):
+        """Initialize ModelOptimization class
 
+        Parameters
+        ----------
+        df_inventory : pd.DataFrame
+            Inventory report with lot and non-lot items
+        optimize_what : str
+            String with objective to be used on the optimization process. Can be on of:
+
+            * ``expire``: Optimize inventory for reducing **only** quantity of items to expire.
+
+            * ``surplus``: Optimize inventory for reducing **only** quantity of surplus items.
+
+            * ``both``: Optimize inventory for reducing **both** quantity of surplus items and items to expire at the same time.
+
+            * ``experimental``: Experimental objective function that tries to formulate the bi-objective function in a way that is
+                more complex but has potential to yield better results.
+
+        sku_qty : int
+            Quantity of unique Item ID's to be optimized. This parameter is useful when debugging the model,
+            since running it on the entire Inventory report takes a considerable amount of time.
+        """
         self.df_inventory = df_inventory
         self.optimize_what = optimize_what
         self.sku_qty = sku_qty
-        self._get_sku()
 
     def _get_solver_time(self, sku: object) -> int:
         """Get maximum amount of time optimizer can use optimizing a single ``Item ID``.
@@ -81,35 +99,21 @@ class ModelOptimization:
                 # Therefore if it fails for some reason we tell the model to use the default time.
                 self.df_inventory = self.item_value_decile()
                 return self.dynamic_max_solver_time(sku)
+
             except ValueError:
                 if LOG_MODE:
                     logging.info(
-                        "Error trying to set maximum solver time dynamically. Using default time of {} s instead."
-                            .format(DEFAULT_TIME))
+                        "Error trying to set maximum solver time dynamically. Using default time of {} s instead.".format(DEFAULT_TIME))
 
         # If USE_DYNAMIC_TIME = False, we tell the model to use default value
         # for maximum time spent on a single item ID
         return DEFAULT_TIME
 
-    def _get_sku(self):
-        """Get SKU List from Inventory.
-
-        Returns
-        -------
-        list : List of unique SKUs.
-
-        """
-        if not isinstance(self.df_inventory, pd.DataFrame):
-            raise TypeError(
-                "df_inventory should be pandas dataframe: %r" % self.df_inventory)
-
-        self.sku_list = list(self.df_inventory[Columns.item_id].unique())
-
-    def dynamic_max_solver_time(self, sku: object):
+    def dynamic_max_solver_time(self, sku: object) -> int:
         """Determine max time to solve optimization dynamically.
 
         If ``USE_DYNAMIC_TIME`` is enabled, this function returns
-        the time limit to spend at a single item ID.
+        the time limit to spend at a single Item ID.
 
         Parameters
         ----------
@@ -129,9 +133,33 @@ class ModelOptimization:
         """
         return MAX_TIME * (self.df_inventory[self.df_inventory[Columns.item_id] == sku]["DecileRank"].iloc[0] + 1) / 10
 
-    def optimize(self, sku: object):
+    @property
+    def optimize_what(self):
+        return self.optimize_what
+
+    @optimize_what.setter
+    def optimize_what(self, value: str):
+        msg = f"{value} is not a valid optimization objective function, please check value passed on the main function, inside 'model/main.py'"
+        assert value in ['expire', 'surplus', 'both', 'experimental'], msg
+
+        self.optimize_what = value
+
+    @property
+    def sku_list(self):
+        """Get SKU List from Inventory.
+
+        Returns
+        -------
+        list : List of unique SKUs.
+
         """
-        Run optimization for specific BU.
+        if not isinstance(self.df_inventory, pd.DataFrame):
+            raise TypeError("df_inventory should be pandas dataframe: %r" % self.df_inventory)
+
+        return list(self.df_inventory[Columns.item_id].unique())
+
+    def optimize(self, sku: object):
+        """Run optimization for specific BU.
 
         When running for entire inventory, this method is called
         in a loop for every unique Item ID.
@@ -149,38 +177,41 @@ class ModelOptimization:
         Returns
         -------
         opt_df : pd.DataFrame
-            Pandas dataframe with optimization results. If none could be \
-            obtained, then function returns empty.
-
+            Pandas dataframe with optimization results. If no feasible solution is found, returns nothing.
         """
-        solver_time = self._get_solver_time(sku)
-        # Generating that item's solution matrix.
-        # If no feasible solution space is found, the SolutionSpace doesn't return us any value.
-        #   Example of unfeasible solution spaces:
-        #       - Item IDs that exist only on one BU.
-        #       - Item IDs that Don't have any item to expire and surplus in all inventories (or shortage).
-        #       - Item IDs that all have and average daily consumption equal to zero....
+
+        # ================== Generating Solution Space ==================
+        # If no feasible solution space is found, model skips to next Item ID
+        # Example of unfeasible solution spaces:
+        # - Item IDs that exist only on one BU.
+        # - Item IDs that Don't have any item to expire and surplus in all inventories (or shortage).
+        # - Item IDs that all have and average daily consumption equal to zero....
         smatrix = SolutionSpace(self.df_inventory[self.df_inventory[Columns.item_id] == sku], sku).sol_matrix()
 
-        # If SolutionSpace couldn't form the solution matrix, we skip to next item ID.
         if smatrix is not None:
             inv_balance, items_to_expire = qty_to_optimize(self.df_inventory, sku)
+            """inv_balance - Represents the total $ value that in theory could be optimized with surplus and shortage
+            items_to_expire - Represents the total $ value that in theory could be optimized with items to expire
+            """
 
-            # Trying to optimize the item by transferring among BU's
+            solver_time = self._get_solver_time(sku)
+            """Solver time represents the maximum amount in seconds the model has to solve each Item ID
+            """
+
+            # ================== Optimization Process ==================
             optimization = OptimizationModel(smatrix, sku, self.optimize_what, solver_time)
             opt_df = optimization.solve()
 
             if opt_df is not None:
-                self.qty_to_optimize["Item ID"].append(sku)
-                self.qty_to_optimize["Inventory Balance"].append(inv_balance)
-                self.qty_to_optimize["Items to Expire"].append(items_to_expire)
-                self.qty_to_optimize[self.transfer_value].append(opt_df[self.transfer_value].sum())
+                self.qty_to_optimize[ITEM_ID].append(sku)
+                self.qty_to_optimize[INV_BALANCE].append(inv_balance)
+                self.qty_to_optimize[ITEMS_TO_EXPIRE].append(items_to_expire)
+                self.qty_to_optimize[TRANSFER_VALUE].append(opt_df[TRANSFER_VALUE].sum())
 
                 logging.info(
-                    "Item ID: {}    Inventory Balance: ${:20,.2f}     Items to Expire: ${:20,.2f}      Optimized "
-                    "Inventory: ${:20,.2f}  Objective: {} "
-                        .format(
-                        sku, inv_balance, items_to_expire, opt_df[self.transfer_value].sum(), optimization.opt_problem))
+                    "{}: {}    Inventory Balance: ${:20,.2f}     Items to Expire: ${:20,.2f}      Optimized "
+                    "Inventory: ${:20,.2f}  Objective: {} " .format(ITEM_ID, sku, inv_balance, items_to_expire,
+                                                                    opt_df[TRANSFER_VALUE].sum(), optimization.opt_problem))
                 return opt_df
 
     def run_all(self):
@@ -220,8 +251,8 @@ def concat(results_list: list) -> pd.DataFrame:
 
     Parameters
     ----------
-    results_list : (list)
-        List with optimization results obtained.
+    results_list : list
+        List with optimization results for every Item ID.
 
     Returns
     -------
@@ -230,14 +261,11 @@ def concat(results_list: list) -> pd.DataFrame:
 
     Raises
     ------
-    TypeError
+    AssertionError
         Gives error if the function input ``results_list`` is not of type ``list``
 
     """
-    if type(results_list) != list:
-        raise TypeError(
-            "results_list is not an list with optimization results: %r" % results_list)
-
+    assert isinstance(results_list, list), "results_list is not an list with optimization results: %r" % results_list
     return pd.concat(results_list)
 
 
@@ -264,7 +292,6 @@ def main(lot_df: pd.DataFrame, nonlot_df: pd.DataFrame, optimize_what: str, save
 
             * ``experimental``: Experimental objective function that tries to formulate the bi-objective function in a way that is
                 more complex but has potential to yield better results.
-
     save_res : bool, optional
         Used if user wants to save optimization results at the folder ``optimization/results``, by default True
     sku_qty : int, optional
@@ -292,26 +319,40 @@ def main(lot_df: pd.DataFrame, nonlot_df: pd.DataFrame, optimize_what: str, save
     # ================== Combining Optimization Results ==================
     result = concat(optimization_list)
     if LOG_MODE:
-        logging.info("Optimization Total Inventory Transfer Value: ${:20,.2f}"
-                     .format(result["$ Value of Transfer"].sum()))
+        logging.info(
+            "Optimization Total Inventory Transfer Value: ${:20,.2f}".format(result["$ Value of Transfer"].sum()))
 
     # ================== Format Output ==================
     result = transfer_reason(df_inventory, result)
 
     # ================== Change dtype of some columns ==================
     result["Sender BU ID"] = result["Sender BU ID"].astype(int).astype(str)
-    result["Item ID"] = result["Item ID"].astype(int).astype(str)
+    result[ITEM_ID] = result[ITEM_ID].astype(int).astype(str)
     result["Receiver BU ID"] = result["Receiver BU ID"].astype(int).astype(str)
 
     # ================== Saving Results ==================
     if save_res:
-        from optimization import constants
-        current_folder = os.path.dirname(os.path.abspath(constants.__file__))
-        results_dir = os.path.join(current_folder, "Results")
-        save_results(result, results_dir, 'optimization_results')
-        save_results(pd.DataFrame(model.qty_to_optimize), results_dir, 'optimizable_inventory')
+        try:
+            from optimization import constants
+            current_folder = os.path.dirname(os.path.abspath(constants.__file__))
+        except ImportError:
+            import __main__
+            current_folder = os.path.dirname(os.path.abspath(__main__.__file__))
+
+        try:
+            results_dir = os.path.join(current_folder, "Results")
+            save_results(result, results_dir, 'optimization_results')
+            save_results(pd.DataFrame(model.qty_to_optimize), results_dir, 'optimizable_inventory')
+        except Exception:
+            msg = ("An error occurred while saving the optimization results. Please," +
+                   " verify if the output filenames already exist, and if so, please make sure they're not open")
+            if LOG_MODE:
+                logging.error(msg)
+            else:
+                raise Exception(msg)
 
     extra_sheet = extra_output(df_inventory)
-    """Extra sheet required for generating dashboard"""
+    """Extra sheet required for generating dashboard
+    """
 
     return result, extra_sheet

@@ -19,13 +19,11 @@ from optimization import solspace
 from optimization.opt_tools.load_data import get_file_extension
 
 RECEIVING_COLUMNS = solspace.RECEIVING_COLUMNS
-"""
-Receiver BU columns
+"""Receiver BU columns
 """
 
 PROVIDING_COLUMNS = solspace.PROVIDING_COLUMNS
-"""
-Sender/Provider BU columns
+"""Sender/Provider BU columns
 """
 
 COLUMNS_TO_EXPORT = [
@@ -63,8 +61,7 @@ COLUMNS_TO_EXPORT = [
     "Receiver BU Approves transfer? (YES/NO)",
     "Chart of Accounts",
     "Receiver BU Address",
-    "Sender Lot Items to Expire",
-]
+    "Sender Lot Items to Expire",]
 """
 Columns required at the final output report
 """
@@ -113,10 +110,8 @@ COLUMNS_RENAME = {
     "provide_expire_date": "Item-Lot Expiry Date",
     "provide_bu_qty_on_hand" : "Sender BU On Hand Quantity",
     "provide_bu_item_qty_in_transf": "Sender BU in Transit Quantity",
-    "receive_bu_item_qty_in_transf": "Receiver BU in Transit Quantity",
-}
-"""
-Rename columns with their names to be added to generated output report
+    "receive_bu_item_qty_in_transf": "Receiver BU in Transit Quantity",}
+"""Rename columns with their names to be added to generated output report
 """
 
 

@@ -1,4 +1,6 @@
 [![deepcode](https://www.deepcode.ai/api/gh/badge?key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwbGF0Zm9ybTEiOiJnaCIsIm93bmVyMSI6ImluZ3dlcnNlbjk2IiwicmVwbzEiOiJFWS1RdWVzdC1EaWFnbm9zdGljcyIsImluY2x1ZGVMaW50IjpmYWxzZSwiYXV0aG9ySWQiOjEzMzIwLCJpYXQiOjE2MDUxOTU5NDh9.GY0cs_K39qlFuf5meK25js1OJAGhBCqTwWAFwSJPduc)](https://www.deepcode.ai/app/gh/ingwersen96/EY-Quest-Diagnostics/_/dashboard?utm_content=gh%2Fingwersen96%2FEY-Quest-Diagnostics) ![version](https://badgen.net/badge/Version/V1.8/green?icon=github). [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=ingwersen96_EY-Quest-Diagnostics&metric=sqale_rating&token=afea3e7dc8e10faf0d1ee50e391e00d04254f556)](https://sonarcloud.io/dashboard?id=ingwersen96_EY-Quest-Diagnostics)
+[![Sonarcloud Code Quality Test](https://github.com/ingwersen-erik/quest-optimization-model/actions/workflows/build.yml/badge.svg?branch=main&event=status)](https://github.com/ingwersen-erik/quest-optimization-model/actions/workflows/build.yml)
+
 
 <p align="left">
   <img src="https://github.com/ingwersen96/ANBIMA-Cyber/blob/master/Github/Gifs/EY-animated-logo.gif">

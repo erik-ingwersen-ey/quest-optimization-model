@@ -1,0 +1,464 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Opt Tools &mdash; Quest Optimization Model 1.2 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Quest Optimization Model
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../source/modules.html">Optimization Model</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Quest Optimization Model</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Opt Tools</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/source copy/optimization.opt_tools.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="opt-tools">
+<h1>Opt Tools<a class="headerlink" href="#opt-tools" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-optimization.opt_tools.aux_funcs">
+<span id="auxiliary-functions"></span><h2>Auxiliary Functions<a class="headerlink" href="#module-optimization.opt_tools.aux_funcs" title="Permalink to this headline">¶</a></h2>
+<p>aux_funcs</p>
+<p>Developers:
+Erik Ingwersen</p>
+<p>Description:
+Python module used to store auxiliary functions that are used in the rest of the code.</p>
+<dl class="py function">
+<dt id="optimization.opt_tools.aux_funcs.create_folder">
+<code class="sig-prename descclassname">optimization.opt_tools.aux_funcs.</code><code class="sig-name descname">create_folder</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fdir</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#optimization.opt_tools.aux_funcs.create_folder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Tries to create the directory specified.</p>
+<p>If new folder can’t be created, function raises error.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>fdir</strong> (<em>str</em>) – Directory of new folder to be created.</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – For some reason folder could not be created.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.opt_tools.aux_funcs.folder_exists">
+<code class="sig-prename descclassname">optimization.opt_tools.aux_funcs.</code><code class="sig-name descname">folder_exists</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fdir</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#optimization.opt_tools.aux_funcs.folder_exists" title="Permalink to this definition">¶</a></dt>
+<dd><p>If folder does not exist, create one.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>fdir</strong> (<em>str</em>) – Directory to check for existence.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.opt_tools.aux_funcs.get_num">
+<code class="sig-prename descclassname">optimization.opt_tools.aux_funcs.</code><code class="sig-name descname">get_num</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">string</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimization.opt_tools.aux_funcs.get_num" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return number from last results .csv version.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>string</strong> (<em>str</em>) – String with the name of the results.csv file.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Number of last version of results.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p>Results_V7.csv -&gt; 7 (Function captures the number)
+Results_V12.csv -&gt; 12 (Function captures the whole number!)</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.opt_tools.aux_funcs.last_result">
+<code class="sig-prename descclassname">optimization.opt_tools.aux_funcs.</code><code class="sig-name descname">last_result</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fdir</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">fname</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; int<a class="headerlink" href="#optimization.opt_tools.aux_funcs.last_result" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get last version number from all results file on directory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>fdir</strong> (<em>str</em>) – Directory where results are being stored.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Last version number from all results at the base directory.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.opt_tools.aux_funcs.path_exists">
+<code class="sig-prename descclassname">optimization.opt_tools.aux_funcs.</code><code class="sig-name descname">path_exists</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fdir</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">raise_error</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em><span class="sig-paren">)</span> &#x2192; bool<a class="headerlink" href="#optimization.opt_tools.aux_funcs.path_exists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if path exists.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>fdir</strong> (<em>str</em>) – Directory to check for existence.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Returns True if path exists and nothing if it doesn’t.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>True, None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.opt_tools.aux_funcs.round_values">
+<code class="sig-prename descclassname">optimization.opt_tools.aux_funcs.</code><code class="sig-name descname">round_values</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em>, <em class="sig-param"><span class="n">column_name</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">decimal_points</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimization.opt_tools.aux_funcs.round_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Round a DataFrame to a variable number of decimal places.</p>
+<p>Method uses for…loop in order to be able to round values even when
+column has non-numeric values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pd.DataFrame</em>) – Dataframe object with column to be rounded.</p></li>
+<li><p><strong>column_name</strong> (<em>str</em>) – Name of the column with values to be rounded.</p></li>
+<li><p><strong>decimal_points</strong> (<em>int</em><em>, </em><em>dict</em><em>, </em><em>Series</em>) – Number of decimal places to round each column to.
+If an int is given, round each column to the same number of places.
+Otherwise dict and Series round to variable numbers of places.
+Column names should be in the keys if decimals is a dict-like, or
+in the index if decimals is a Series. Any columns not included in decimals
+will be left as is. Elements of decimals which are
+not columns of the input will be ignored.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>df</strong> – DataFrame object.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.opt_tools.aux_funcs.save_results">
+<code class="sig-prename descclassname">optimization.opt_tools.aux_funcs.</code><code class="sig-name descname">save_results</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">result</span></em>, <em class="sig-param"><span class="n">fdir</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">fname</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'results'</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#optimization.opt_tools.aux_funcs.save_results" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save model results.</p>
+<p>Saves the results obtained from the model at the specified directory using the
+version control convention estabilshed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fdir</strong> (<em>str</em>) – Directory that the results will be saved.</p></li>
+<li><p><strong>result</strong> (<em>pandas.core.frame.DataFrame</em>) – Dataframe with the optimization model’s results.</p></li>
+<li><p><strong>fname</strong> (<em>str Defaults='results'</em>) – Filename in which results should be saved.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-optimization.opt_tools.load_data">
+<span id="load-data"></span><h2>Load Data<a class="headerlink" href="#module-optimization.opt_tools.load_data" title="Permalink to this headline">¶</a></h2>
+<p>load_data</p>
+<p>Developers:
+Erik Ingwersen</p>
+<p>Description:
+Module with methods for loading inventory reports.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>At this moment, this model supports .csv .xlsx file formats.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>.xlsx files should have inventory report as first sheet (otherwise it won’t work).</p>
+</div>
+<dl class="py function">
+<dt id="optimization.opt_tools.load_data.check_extension">
+<code class="sig-prename descclassname">optimization.opt_tools.load_data.</code><code class="sig-name descname">check_extension</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fext</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; None<a class="headerlink" href="#optimization.opt_tools.load_data.check_extension" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if file extension is suported.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>(</strong><strong>str</strong><strong>)</strong> (<em>fext</em>) – </p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Raises error if extension is not supported.:</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.opt_tools.load_data.get_file_extension">
+<code class="sig-prename descclassname">optimization.opt_tools.load_data.</code><code class="sig-name descname">get_file_extension</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fname</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#optimization.opt_tools.load_data.get_file_extension" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return file extension.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>(</strong><strong>str</strong><strong>)</strong> (<em>fname</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.opt_tools.load_data.load_csv">
+<code class="sig-prename descclassname">optimization.opt_tools.load_data.</code><code class="sig-name descname">load_csv</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fdir</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; pandas.core.frame.DataFrame<a class="headerlink" href="#optimization.opt_tools.load_data.load_csv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads csv file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>fdir</strong> (<em>str</em>) – Filepath of the csv file.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Pandas dataframe of the loaded csv.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.opt_tools.load_data.load_data">
+<code class="sig-prename descclassname">optimization.opt_tools.load_data.</code><code class="sig-name descname">load_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fdir</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; pandas.core.frame.DataFrame<a class="headerlink" href="#optimization.opt_tools.load_data.load_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Load dataframe.</p>
+<p>Method calls function that determines the file extension,
+then it calls the appropriate method to load the file.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Supported file formats should be added at module constants list named
+supported_file_extensions</p>
+</div>
+<dl class="py method">
+<dt>
+<code class="sig-name descname">\* get_file_extension(fdir)</code></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">\* load_csv(fdir)</code></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt>
+<code class="sig-name descname">\* load_excel(fdir)</code></dt>
+<dd></dd></dl>
+
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>fdir</strong> (<em>str</em>) – Filepath of the dataframe.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>x_df</strong> – Dataframe loaded.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.opt_tools.load_data.load_excel">
+<code class="sig-prename descclassname">optimization.opt_tools.load_data.</code><code class="sig-name descname">load_excel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">fdir</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; pandas.core.frame.DataFrame<a class="headerlink" href="#optimization.opt_tools.load_data.load_excel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads excel file into pandas DataFrame.</p>
+<p>This method is an extension of load_data.
+After load_data determines the file extension,
+and if the extension is of type .xlsx, load_data
+calls this method to load the excel file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>(</strong><strong>str</strong><strong>)</strong> (<em>fdir</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>pd.DataFrame</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Dataframe loaded.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2021, Erik Ingwersen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

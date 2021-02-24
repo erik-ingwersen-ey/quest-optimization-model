@@ -1,0 +1,8 @@
+Optimization Model
+============
+
+.. toctree::
+   :maxdepth: 5
+
+   optimization
+

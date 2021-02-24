@@ -1,0 +1,22 @@
+Surplus
+============================
+
+Submodules
+----------
+
+
+Main
+--------------------------------
+
+.. automodule:: optimization.surplus.main
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Optimizer
+-------------------------------------
+
+.. automodule:: optimization.surplus.optimizer
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,52 @@
+Optimization Model
+====================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 2
+
+   optimization.datatools
+   optimization.input_data
+   optimization.opt_tools
+   optimization.surplus
+
+Submodules
+----------
+   * solspace
+   * constants
+   * debug
+   * logconfig
+
+Constants
+-----------------------------
+
+.. automodule:: optimization.constants
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Debug
+-------------------------
+
+.. automodule:: optimization.debug
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Logconfig
+-----------------------------
+
+.. automodule:: optimization.logconfig
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Solspace
+----------------------------
+
+.. automodule:: optimization.solspace
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,28 @@
+Surplus
+========
+Module used to unite all necessary scripts necessary to generate the optimization report.
+
+
+Main
+--------------------------------
+
+.. automodule:: optimization.surplus.main
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Optimizer
+-------------------------------------
+
+.. automodule:: optimization.surplus.optimizer
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: optimization.surplus
+   :members:
+   :undoc-members:
+   :show-inheritance:

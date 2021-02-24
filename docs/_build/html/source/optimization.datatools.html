@@ -1,0 +1,1548 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Datatools &#8212; Quest Optimization Model 1.2 documentation</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/thebelab-helper.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Optimization Tools" href="optimization.opt_tools.html" />
+    <link rel="prev" title="Model" href="optimization.model.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    <a class="navbar-brand" href="../index.html">
+    
+      <p class="title">Quest Optimization Model</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="optimization.html">Optimization Model</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="guides.html">User Guides</a>
+        </li>
+        
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+          
+            
+                <li class="">
+                    <a href="optimization.model.html">Model</a>
+                </li>
+            
+          
+            
+                <li class="active">
+                    <a href="">Datatools</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="optimization.opt_tools.html">Optimization Tools</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="optimization.configuration.html">Model Configurations</a>
+                </li>
+            
+          
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#module-optimization.datatools.dataprep" class="nav-link">Dataprep</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#module-optimization.datatools.extra_output" class="nav-link">Extra Output</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#module-optimization.datatools.pipelines" class="nav-link">Pipelines</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#module-optimization.datatools" class="nav-link">Module contents</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#submodules" class="nav-link">Submodules</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="datatools">
+<h1>Datatools<a class="headerlink" href="#datatools" title="Permalink to this headline">¶</a></h1>
+<p>Modules used for <strong>input data ingestion</strong>, <strong>input data validation</strong>, <strong>data cleanning</strong> and <strong>creating all necessary columns</strong>.
+Methods created for data manipulation are stored at <a class="reference internal" href="#module-optimization.datatools.dataprep" title="optimization.datatools.dataprep"><code class="xref py py-meth docutils literal notranslate"><span class="pre">optimization.datatools.dataprep</span></code></a>.
+Using the methods from <a class="reference internal" href="#module-optimization.datatools.dataprep" title="optimization.datatools.dataprep"><code class="xref py py-meth docutils literal notranslate"><span class="pre">optimization.datatools.dataprep</span></code></a>, <a class="reference internal" href="#module-optimization.datatools.pipelines" title="optimization.datatools.pipelines"><code class="xref py py-meth docutils literal notranslate"><span class="pre">optimization.datatools.pipelines</span></code></a> stores
+all pipelines used to load and manipulate input inventory reports that are then passed to the optimization model.</p>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#module-optimization.datatools" title="optimization.datatools"><code class="xref py py-obj docutils literal notranslate"><span class="pre">optimization.datatools</span></code></a></p></td>
+<td><p>Scripts used to generate necessary columns and perform data cleanning steps.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#module-optimization.datatools.pipelines" title="optimization.datatools.pipelines"><code class="xref py py-obj docutils literal notranslate"><span class="pre">optimization.datatools.pipelines</span></code></a></p></td>
+<td><p>Pipelines used for adjusting input inventory reports to be passed to optimization model.</p></td>
+</tr>
+</tbody>
+</table>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#module-optimization.datatools.extra_output" title="optimization.datatools.extra_output"><code class="xref py py-obj docutils literal notranslate"><span class="pre">optimization.datatools.extra_output</span></code></a></p></td>
+<td><p>Extra output scripts for creating output columns to optimization model.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="module-optimization.datatools.dataprep">
+<span id="dataprep"></span><h2>Dataprep<a class="headerlink" href="#module-optimization.datatools.dataprep" title="Permalink to this headline">¶</a></h2>
+<p>Functions created for data transformation or validation processes</p>
+<p>Before optimizing inventory, we use the functions defined at this module for validating and manipulating
+input data. Here we defined all necessary building blocks for calculating our necessary columns and also to
+make sure that there are no potential inconsistencies in the input data that could impact model recommendation constants.
+These methods are used in the form of pipelines.</p>
+<dl class="py function">
+<dt id="optimization.datatools.dataprep.bu_qty_on_hand">
+<code class="sig-prename descclassname">optimization.datatools.dataprep.</code><code class="sig-name descname">bu_qty_on_hand</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x_df</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimization.datatools.dataprep.bu_qty_on_hand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Recalculates the quantity each BU has on hand.</p>
+<p>This calculation is necessary, since many BU qty on hand are actually wrong
+and in some cases, considering items that have already expired.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x_df</strong> (<em>pd.DataFrame</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>pd.DataFrame</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Dataframe with updated value for BU Qty on Hand.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.dataprep.clean_names">
+<code class="sig-prename descclassname">optimization.datatools.dataprep.</code><code class="sig-name descname">clean_names</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x_df</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em><span class="sig-paren">)</span> &#x2192; pandas.core.frame.DataFrame<a class="headerlink" href="#optimization.datatools.dataprep.clean_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Clean dataframe column names.</p>
+<p>The method cleans column names by:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Making everything lower case</p></li>
+<li><p>Adding ‘_’ instead of ‘ ‘</p></li>
+<li><p>Removing special character ‘$’</p></li>
+<li><p>removing parenthesis ‘(‘ or ‘)’</p></li>
+</ol>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x_df</strong> (<em>pd.DataFrame</em>) – Dataframe with columns to be cleaned.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>x_df</strong> – Dataframe with cleaned columns.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.dataprep.column_exists">
+<code class="sig-prename descclassname">optimization.datatools.dataprep.</code><code class="sig-name descname">column_exists</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x_df</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em>, <em class="sig-param"><span class="n">column_name</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">condition</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimization.datatools.dataprep.column_exists" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assert column exists in dataframe.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x_df</strong> (<em>pd.DataFrame</em>) – </p></li>
+<li><p><strong>column_name</strong> (<em>str</em>) – Name of the column we want to know if already exists.</p></li>
+<li><p><strong>condition</strong> (<em>int</em>) – <p>If we want to assert that column exists or not. Defaults to 0.</p>
+<ul>
+<li><p><strong>if condition = 0:</strong> assert that column exist.</p></li>
+<li><p><strong>if condition = 1:</strong> assert column doesn’t exist.</p></li>
+</ul>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – Error message to be displayed if assertion fails.: <strong>If test fail, this function will stop the model from running.</strong></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.dataprep.columns_error_handling">
+<code class="sig-prename descclassname">optimization.datatools.dataprep.</code><code class="sig-name descname">columns_error_handling</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x_df</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em>, <em class="sig-param"><span class="n">column_list</span><span class="p">:</span> <span class="n">list</span></em><span class="sig-paren">)</span> &#x2192; pandas.core.frame.DataFrame<a class="headerlink" href="#optimization.datatools.dataprep.columns_error_handling" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handle column name errors.</p>
+<p>For column names that were not found     in the original dataframe, we try to find If     the column is present but with a different name.</p>
+<p>We also handle errors if columns are not found for specific     column names that usually are not present in the non-lot dataframe.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x_df</strong> (<em>pd.DataFrame</em>) – Inventory report</p></li>
+<li><p><strong>column_list</strong> (<em>list</em>) – List of columns that the method needs to find.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>Pandas dataframe with all error handling transformations</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.dataprep.columns_needed">
+<code class="sig-prename descclassname">optimization.datatools.dataprep.</code><code class="sig-name descname">columns_needed</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x_df</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em>, <em class="sig-param"><span class="n">column_list</span><span class="p">:</span> <span class="n">list</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimization.datatools.dataprep.columns_needed" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select need columns.</p>
+<p>The method selects only the columns needed based on list of columns needed
+that is passed as an argument.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x_df</strong> (<em>pd.DataFrame</em>) – Dataframe with many unused columns.</p></li>
+<li><p><strong>column_list</strong> (<em>list</em>) – List of columns to be mantained.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>x_df</strong> – Dataframe with only the columns specified by the column_list.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.dataprep.combine_lot_non_lot">
+<code class="sig-prename descclassname">optimization.datatools.dataprep.</code><code class="sig-name descname">combine_lot_non_lot</code><span class="sig-paren">(</span><em class="sig-param"><span class="o">*</span><span class="n">args</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimization.datatools.dataprep.combine_lot_non_lot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Combine lot and non-lot inventories.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>object</strong></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Combined inventory.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.dataprep.concat">
+<code class="sig-prename descclassname">optimization.datatools.dataprep.</code><code class="sig-name descname">concat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">results_list</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimization.datatools.dataprep.concat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Concatenates list of results.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>results_list</strong> (<em>list</em>) – List with optimization results.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>Optimization results</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame:</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.dataprep.create_column">
+<code class="sig-prename descclassname">optimization.datatools.dataprep.</code><code class="sig-name descname">create_column</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x_df</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em>, <em class="sig-param"><span class="n">column_name</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">default_value</span><span class="p">:</span> <span class="n">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimization.datatools.dataprep.create_column" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create new column based on passed name and fill with default_value.</p>
+<p>The new column will be filled with values specified by the <code class="docutils literal notranslate"><span class="pre">default_value</span></code>
+variable. These values can range from <strong>numbers</strong> to <strong>strings</strong> and <strong>even other column
+values</strong> from <code class="docutils literal notranslate"><span class="pre">x_df</span></code>.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">default_value</span></code> is equal to a column name from x_df, the new column
+gets filled with values from that other column.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">default_value</span></code> is not equal to a column name from <code class="docutils literal notranslate"><span class="pre">x_df</span></code>, and is of type <code class="docutils literal notranslate"><span class="pre">string</span></code>,
+<code class="docutils literal notranslate"><span class="pre">int</span></code> or <code class="docutils literal notranslate"><span class="pre">float</span></code>, the new column gets filled with that value.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>If a column with the same name as <code class="docutils literal notranslate"><span class="pre">column_name</span></code> already exists at <code class="docutils literal notranslate"><span class="pre">x_df</span></code> this
+function will return an error and inform at <code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">file</span></code> about its occurrence.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x_df</strong> (<em>pd.DataFrame</em>) – Dataframe to place new column</p></li>
+<li><p><strong>column_name</strong> (<em>str</em>) – Name of new column to be created.</p></li>
+<li><p><strong>default_value</strong> (<em>object</em>) – Value to be used as default value.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>x_df</strong> – Dataframe with newly created column.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.dataprep.cumulative_days_of_inventory">
+<code class="sig-prename descclassname">optimization.datatools.dataprep.</code><code class="sig-name descname">cumulative_days_of_inventory</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x_df</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimization.datatools.dataprep.cumulative_days_of_inventory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the cumulative days to expire for every SKU at every BU.</p>
+<p>This method works like a window SQL function. It does some calculation
+(in this case, the cumulative sum) based on a subgroup from our dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x_df</strong> (<em>pd.DataFrame</em>) – Dataframe to be used.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>x_df</strong> – Dataframe with the new column added.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference external" href="https://towardsdatascience.com/sql-window-functions-in-python-pandas-data-science-dc7c7a63cbb4">towardsdatascience.com/sql-window-functions-in-python</a></p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.dataprep.cumulative_stock">
+<code class="sig-prename descclassname">optimization.datatools.dataprep.</code><code class="sig-name descname">cumulative_stock</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x_df</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em><span class="sig-paren">)</span> &#x2192; pandas.core.frame.DataFrame<a class="headerlink" href="#optimization.datatools.dataprep.cumulative_stock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the cumulative days to expire for every SKU at every BU.</p>
+<p>This method works like a window SQL function. It does some calculation
+(in this case, the cumulative sum) based on a subgroup from our dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x_df</strong> (<em>pd.DataFrame</em>) – Dataframe to be used.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>x_df</strong> – Dataframe with added column added.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.dataprep.date_column">
+<code class="sig-prename descclassname">optimization.datatools.dataprep.</code><code class="sig-name descname">date_column</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x_df</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em>, <em class="sig-param"><span class="n">column_list</span><span class="p">:</span> <span class="n">list</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimization.datatools.dataprep.date_column" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert columns from string to datetime.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x_df</strong> (<em>pd.DataFrame</em>) – Dataframe with column dates to be converted.</p></li>
+<li><p><strong>column_list</strong> (<em>list</em>) – List of column names that need to be converted from string to datetime.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>x_df</strong> – Dataframe converted columns.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.dataprep.days_of_inv_with_transit">
+<code class="sig-prename descclassname">optimization.datatools.dataprep.</code><code class="sig-name descname">days_of_inv_with_transit</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">row</span><span class="p">:</span> <span class="n">pandas.core.series.Series</span></em><span class="sig-paren">)</span> &#x2192; pandas.core.series.Series<a class="headerlink" href="#optimization.datatools.dataprep.days_of_inv_with_transit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the days of the given row.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>row</strong> (<em>pd.Series</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>Row based on conditional statement applied</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.Series</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.dataprep.days_of_inventory">
+<code class="sig-prename descclassname">optimization.datatools.dataprep.</code><code class="sig-name descname">days_of_inventory</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x_df</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em>, <em class="sig-param"><span class="n">consider_transit</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimization.datatools.dataprep.days_of_inventory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create new column with days of inventory.</p>
+<p>Days of inventory is a calculation based on the number of items in stock
+and the business unit average consumption rate for that item.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If we have an average consumption rate of zero, we should have an
+infinite quantity of days of inventory. In reality, this means that
+no item is being consumed at that business unit and so, we should send all
+of those items to somewhere else.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x_df</strong> (<em>pd.DataFrame</em>) – Dataframe to be used.</p></li>
+<li><p><strong>consider_transit</strong> (<em>bool</em>) – If True, consider items in transit, when calculating days of inventory, defaults to False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>x_df</strong> – Dataframe with the new column added.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.dataprep.days_to_expire">
+<code class="sig-prename descclassname">optimization.datatools.dataprep.</code><code class="sig-name descname">days_to_expire</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x_df</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimization.datatools.dataprep.days_to_expire" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create new column with days to expire.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x_df</strong> (<em>pd.DataFrame</em>) – Dataframe to be used.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>x_df</strong> – Dataframe with the new column added.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.dataprep.delete_column">
+<code class="sig-prename descclassname">optimization.datatools.dataprep.</code><code class="sig-name descname">delete_column</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x_df</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em>, <em class="sig-param"><span class="n">column_name</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; pandas.core.frame.DataFrame<a class="headerlink" href="#optimization.datatools.dataprep.delete_column" title="Permalink to this definition">¶</a></dt>
+<dd><p>delete a column from x_df</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x_df</strong> (<em>pd.DataFrame</em>) – </p></li>
+<li><p><strong>column_name</strong> (<em>str</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>pd.DataFrame</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Returns Pandas <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> without the deleted column</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.dataprep.delta_days_of_inventory">
+<code class="sig-prename descclassname">optimization.datatools.dataprep.</code><code class="sig-name descname">delta_days_of_inventory</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x_df</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimization.datatools.dataprep.delta_days_of_inventory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Column with delta days of inventory.</p>
+<p>Create new column with the difference in days between
+the number of days of inventory and the days of inventory target for every
+item/business unit.</p>
+<p>Days of inventory is a calculation based on the number of items in stock
+and the business unit average consumption rate for that item.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x_df</strong> (<em>pd.DataFrame</em>) – Dataframe to be used.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>x_df</strong> – Dataframe with the new column added.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.dataprep.fill_na">
+<code class="sig-prename descclassname">optimization.datatools.dataprep.</code><code class="sig-name descname">fill_na</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x_df</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em>, <em class="sig-param"><span class="n">column_name</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">value</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimization.datatools.dataprep.fill_na" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fill null rows from column based on specified value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x_df</strong> (<em>pd.DataFrame</em>) – Dataframe to be used.</p></li>
+<li><p><strong>column_name</strong> (<em>str</em>) – Name of the column with null values.</p></li>
+<li><p><strong>value</strong> (<em>object</em>) – <p>Value to be used to fill null values.</p>
+<p>Can be:</p>
+<blockquote>
+<div><ul>
+<li><p>A float or int.</p></li>
+<li><p>’mean’: will fill with the mean value of the column.</p></li>
+<li><p>str: will search for a column with this string name at x_df columns.</p></li>
+</ul>
+</div></blockquote>
+</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>x_df</strong> – Result dataframe.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.dataprep.fix_last_results_join">
+<code class="sig-prename descclassname">optimization.datatools.dataprep.</code><code class="sig-name descname">fix_last_results_join</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x_df</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em><span class="sig-paren">)</span> &#x2192; pandas.core.frame.DataFrame<a class="headerlink" href="#optimization.datatools.dataprep.fix_last_results_join" title="Permalink to this definition">¶</a></dt>
+<dd><p>Join the last results of the last query.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x_df</strong> (<em>pd.DataFrame</em>) – Removes <code class="docutils literal notranslate"><span class="pre">null</span></code> values that appear after combining transfer recommendations back to the inventory report.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>pd.DataFrame</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Dataframe with fixed join</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.dataprep.get_bu_granularity">
+<code class="sig-prename descclassname">optimization.datatools.dataprep.</code><code class="sig-name descname">get_bu_granularity</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x_df</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em><span class="sig-paren">)</span> &#x2192; pandas.core.frame.DataFrame<a class="headerlink" href="#optimization.datatools.dataprep.get_bu_granularity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get aggregated inventory report by business unit and item id granularity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x_df</strong> (<em>pd.DataFrame</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>Dataframe with business unit/item granularity</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.dataprep.get_mean">
+<code class="sig-prename descclassname">optimization.datatools.dataprep.</code><code class="sig-name descname">get_mean</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x_df</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em>, <em class="sig-param"><span class="n">column_name</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimization.datatools.dataprep.get_mean" title="Permalink to this definition">¶</a></dt>
+<dd><p>Mean value from column.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x_df</strong> (<em>pd.DataFrame</em>) – Dataframe to be used.</p></li>
+<li><p><strong>column_name</strong> (<em>str</em>) – Name of the column to calculate mean value.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>mean_value</strong> – Mean of column analyzed.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.dataprep.group_by">
+<code class="sig-prename descclassname">optimization.datatools.dataprep.</code><code class="sig-name descname">group_by</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x_df</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em>, <em class="sig-param"><span class="n">group_cols</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>str<span class="p">, </span>list<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">agg_dict</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span> &#x2192; pandas.core.frame.DataFrame<a class="headerlink" href="#optimization.datatools.dataprep.group_by" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform group by operation on a given DataFrame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x_df</strong> (<em>pd.DataFrame</em>) – Inventory report to be used at the <code class="docutils literal notranslate"><span class="pre">groupby</span></code></p></li>
+<li><p><strong>group_cols</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>list</em><em>]</em>) – column or list of columns to be used as <strong>groupings</strong></p></li>
+<li><p><strong>agg_dict</strong> (<em>dict</em>) – Dictionary with columns to be aggregated and their respective kind of aggregation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>Grouped dataframe</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.dataprep.handle_name_matching_errors">
+<code class="sig-prename descclassname">optimization.datatools.dataprep.</code><code class="sig-name descname">handle_name_matching_errors</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x_df</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em>, <em class="sig-param"><span class="n">passed_vars</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span> &#x2192; pandas.core.frame.DataFrame<a class="headerlink" href="#optimization.datatools.dataprep.handle_name_matching_errors" title="Permalink to this definition">¶</a></dt>
+<dd><p>Handles the process of trying to find the column name that corresponds to the one we’re looking for.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x_df</strong> (<em>pd.DataFrame</em>) – Table with column names.</p></li>
+<li><p><strong>passed_vars</strong> (<em>dict</em>) – Dictionary with column names that were not found on dataframe</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>Table with renamed columns if match was found</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.dataprep.how_many_bus_have_item">
+<code class="sig-prename descclassname">optimization.datatools.dataprep.</code><code class="sig-name descname">how_many_bus_have_item</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x_df</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimization.datatools.dataprep.how_many_bus_have_item" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate number of unique BU’s that have a given item.</p>
+<p>This function returns new column that gives us the number of
+unique BU’s that have a given item. We use this information to
+filter out Items that have only one BU.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x_df</strong> (<em>pd.DataFrame</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>pd.DataFrame</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Dataframe with new column that has number of BU’s that have that a given Item.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.dataprep.item_value_importance">
+<code class="sig-prename descclassname">optimization.datatools.dataprep.</code><code class="sig-name descname">item_value_importance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x_df</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em><span class="sig-paren">)</span> &#x2192; pandas.core.frame.DataFrame<a class="headerlink" href="#optimization.datatools.dataprep.item_value_importance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate value of item based on all inventory.</p>
+<p>Calculate Decile for item total value
+(total dollar value of given item if you sum the quantity from every BU).</p>
+<p>For doing so, we create <strong>3 new columns</strong>:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">item_value</span></code>: Total dollar value for every lot.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">total_item_value</span></code>: Total dollar value for every item.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">DecileRank</span></code>: Decile of <code class="docutils literal notranslate"><span class="pre">total_item_value</span></code>.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x_df</strong> (<em>pd.DataFrame</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>pd.DataFrame</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dataframe with new column <code class="docutils literal notranslate"><span class="pre">normalized_item_value</span></code></p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If configuration for <code class="docutils literal notranslate"><span class="pre">USE_DYNAMIC_TIME</span></code> is enabled, this function
+allows the optimizer to determine the maximum amount of time that it can spend solving
+a single <strong>item id</strong> based on the monetary importance of that item in relation to other Item IDs.</p>
+<p>To enable or disable it, go to <code class="docutils literal notranslate"><span class="pre">optimization.constants</span></code>.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.dataprep.items_to_expire">
+<code class="sig-prename descclassname">optimization.datatools.dataprep.</code><code class="sig-name descname">items_to_expire</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x_df</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em><span class="sig-paren">)</span> &#x2192; pandas.core.frame.DataFrame<a class="headerlink" href="#optimization.datatools.dataprep.items_to_expire" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create new column with items to expire.</p>
+<p>Items to expire calculation should be calculated
+at SKU/Business Unit granularity. This means that for
+Business Units with many different Lots, we need to take
+into consideration that those items from those Lots are going
+to be consumed in a chain-wise manner.</p>
+<p class="rubric">Example</p>
+<p>The example bellow demonstrates how we need to consider the relationship between
+different Lots at the same BU, with different expiration dates.</p>
+<table class="table">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 12%" />
+<col style="width: 11%" />
+<col style="width: 26%" />
+<col style="width: 41%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Inv BU</p></th>
+<th class="head"><p>Item ID</p></th>
+<th class="head"><p>Lot ID</p></th>
+<th class="head"><p>Lot Days to Expire</p></th>
+<th class="head"><p>BU Cumulative Days to Expire</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>BU A</p></td>
+<td><p>SKU 1000</p></td>
+<td><p>Lot H10</p></td>
+<td><p>Days to Expire (10)</p></td>
+<td><p>cumulative Days to Expire (10)</p></td>
+</tr>
+<tr class="row-odd"><td><p>BU A</p></td>
+<td><p>SKU 1000</p></td>
+<td><p>Lot H15</p></td>
+<td><p>Days to Expire (18)</p></td>
+<td><p>cumulative Days to Expire (28)</p></td>
+</tr>
+<tr class="row-even"><td><p>BU A</p></td>
+<td><p>SKU 1000</p></td>
+<td><p>Lot X05</p></td>
+<td><p>Days to Expire (25)</p></td>
+<td><p>cumulative Days to Expire (53)</p></td>
+</tr>
+<tr class="row-odd"><td><p>BU A</p></td>
+<td><p>SKU 1000</p></td>
+<td><p>Lot O90</p></td>
+<td><p>Days to Expire (30)</p></td>
+<td><p>cumulative Days to Expire (83)</p></td>
+</tr>
+<tr class="row-even"><td><p>BU A</p></td>
+<td><p>SKU 1000</p></td>
+<td><p>Lot L07</p></td>
+<td><p>Days to Expire (50)</p></td>
+<td><p>cumulative Days to Expire (133)</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x_df</strong> (<em>pd.DataFrame</em>) – Dataframe to be used.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>x_df</strong> – Dataframe with days to expire calculated.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Days to expire should be in ascending order.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.dataprep.join">
+<code class="sig-prename descclassname">optimization.datatools.dataprep.</code><code class="sig-name descname">join</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x_df</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em>, <em class="sig-param"><span class="n">y_df</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em>, <em class="sig-param"><span class="n">on</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>str<span class="p">, </span>list<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">how</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'left'</span></em><span class="sig-paren">)</span> &#x2192; pandas.core.frame.DataFrame<a class="headerlink" href="#optimization.datatools.dataprep.join" title="Permalink to this definition">¶</a></dt>
+<dd><p>Join dataframe.</p>
+<p>Used to combine two DataFrames based on common set of keys and a specified type of join.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x_df</strong> (<em>pd.DataFrame</em>) – Left side Dataframe</p></li>
+<li><p><strong>y_df</strong> (<em>pd.DataFrame</em>) – Right side Dataframe</p></li>
+<li><p><strong>on</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>list</em><em>]</em>) – Column or list of columns to be used as keys.</p></li>
+<li><p><strong>how</strong> (<em>str</em>) – How the join should be performed, by default ‘left’.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>Merged Dataframe</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.dataprep.last_transformations">
+<code class="sig-prename descclassname">optimization.datatools.dataprep.</code><code class="sig-name descname">last_transformations</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x_df</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em><span class="sig-paren">)</span> &#x2192; pandas.core.frame.DataFrame<a class="headerlink" href="#optimization.datatools.dataprep.last_transformations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Last column transformations.</p>
+<p>Makes sure that if business unit has average
+item daily use equal to zero, and items on
+hand that these number of items is used as
+doi balance.</p>
+<p>Applies last columns transformations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x_df</strong> (<em>pd.DataFrame</em>) – Dataframe to be used.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>x_df</strong> – Dataframe with last transformed columns.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.dataprep.rank_column">
+<code class="sig-prename descclassname">optimization.datatools.dataprep.</code><code class="sig-name descname">rank_column</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x_df</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em>, <em class="sig-param"><span class="n">new_column_name</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">group_column</span><span class="p">:</span> <span class="n">Union<span class="p">[</span>str<span class="p">, </span>list<span class="p">]</span></span></em>, <em class="sig-param"><span class="n">col_rank</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">rank_type</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'dense'</span></em>, <em class="sig-param"><span class="n">ascending</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">True</span></em><span class="sig-paren">)</span> &#x2192; pandas.core.frame.DataFrame<a class="headerlink" href="#optimization.datatools.dataprep.rank_column" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ranks column values by specified groups.</p>
+<p>Function divides inventory report into different column based groups.
+It then determines the specified column’s rank relative to its
+group—the function returns the initial input table with an additional
+column with each row’s ranking.</p>
+<p>Numerical data ranks go from 1 through n.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>This function is not used by the model anymore. It was used during development to simulate
+impact of transfer recommendations through time.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x_df</strong> (<em>pd.DataFrame</em>) – Table with columns to be ranked.</p></li>
+<li><p><strong>new_column_name</strong> (<em>str</em>) – Name of the column that stores rank values.</p></li>
+<li><p><strong>group_column</strong> (<em>Union</em><em>[</em><em>str</em><em>, </em><em>list</em><em>]</em>) – Used to determine the groups for the groups in which to rank by.</p></li>
+<li><p><strong>col_rank</strong> (<em>str</em>) – Column with values to be ranked.</p></li>
+<li><p><strong>rank_type</strong> (<em>str</em>) – <p>Defaults to <code class="docutils literal notranslate"><span class="pre">dense</span></code>. How to rank the group of records that have the same value (i.e. tries):</p>
+<blockquote>
+<div><ul>
+<li><p><strong>average:</strong> average rank of the group</p></li>
+<li><p><strong>min:</strong> lowest rank in the group</p></li>
+<li><p><strong>max:</strong> highest rank in the group</p></li>
+<li><p><strong>first:</strong> ranks assigned in order they appear in the array</p></li>
+<li><p><strong>dense:</strong> like <code class="docutils literal notranslate"><span class="pre">min</span></code>, but rank always increases by 1 between groups.</p></li>
+</ul>
+</div></blockquote>
+</p></li>
+<li><p><strong>ascending</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether or not the elements should be ranked in ascending order, defaults to <code class="docutils literal notranslate"><span class="pre">True.</span></code></p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>pd.DataFrame</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Returns Pandas <code class="docutils literal notranslate"><span class="pre">Series</span></code> or <code class="docutils literal notranslate"><span class="pre">DataFrame</span></code> with data ranks in the specified column.</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference external" href="http://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.rank.html">pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.rank.html</a></p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.dataprep.remove_expired_items">
+<code class="sig-prename descclassname">optimization.datatools.dataprep.</code><code class="sig-name descname">remove_expired_items</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x_df</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimization.datatools.dataprep.remove_expired_items" title="Permalink to this definition">¶</a></dt>
+<dd><p>Removes items that have expired.</p>
+<p>Function verifies if <code class="docutils literal notranslate"><span class="pre">expire_date</span></code> is older than <code class="docutils literal notranslate"><span class="pre">report_date</span></code>.
+If so, consider that <strong>Lot as having zero items</strong>.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>We don’t remove that record from our table, since the business unit
+might have an <code class="docutils literal notranslate"><span class="pre">average_daily_consumption_rate</span></code> bigger than <strong>zero</strong>.
+If so, we might still want to transfer her items.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x_df</strong> (<em>pd.DataFrame</em>) – Input table to be filtered.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Table without expired items.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.dataprep.rename_columns">
+<code class="sig-prename descclassname">optimization.datatools.dataprep.</code><code class="sig-name descname">rename_columns</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x_df</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em>, <em class="sig-param"><span class="n">old_column_name</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">new_column_name</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; pandas.core.frame.DataFrame<a class="headerlink" href="#optimization.datatools.dataprep.rename_columns" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rename one or more columns</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x_df</strong> (<em>pd.DataFrame</em>) – </p></li>
+<li><p><strong>old_column_name</strong> (<em>str</em>) – </p></li>
+<li><p><strong>new_column_name</strong> (<em>str</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>pd.DataFrame</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dataframe with renamed columns</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.dataprep.replace_values">
+<code class="sig-prename descclassname">optimization.datatools.dataprep.</code><code class="sig-name descname">replace_values</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x_df</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em>, <em class="sig-param"><span class="n">column_name</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">value</span><span class="p">:</span> <span class="n">None</span></em>, <em class="sig-param"><span class="n">column_transformed</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">new_value</span><span class="p">:</span> <span class="n">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimization.datatools.dataprep.replace_values" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replace Values on column based on condition.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x_df</strong> (<em>pd.DataFrame</em>) – Dataframe to be used.</p></li>
+<li><p><strong>column_name</strong> (<em>str</em>) – Name of the column where condition applies.</p></li>
+<li><p><strong>value</strong> (<em>float</em>) – Value to be used in condition.</p></li>
+<li><p><strong>column_transformed</strong> (<em>str</em>) – Column with values to modify.</p></li>
+<li><p><strong>new_value</strong> (<em>float</em>) – New value to be added based on condition.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>x_df</strong> – Dataframe with new column values.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.dataprep.reset_index">
+<code class="sig-prename descclassname">optimization.datatools.dataprep.</code><code class="sig-name descname">reset_index</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x_df</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimization.datatools.dataprep.reset_index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Reset the index to a new dataframe.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x_df</strong> (<em>pd.DataFrame</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.dataprep.substitute_flag">
+<code class="sig-prename descclassname">optimization.datatools.dataprep.</code><code class="sig-name descname">substitute_flag</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x_df</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em>, <em class="sig-param"><span class="n">column_name</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; pandas.core.frame.DataFrame<a class="headerlink" href="#optimization.datatools.dataprep.substitute_flag" title="Permalink to this definition">¶</a></dt>
+<dd><p>Substitute a flag in a column.</p>
+<p>Changes column flags from <code class="docutils literal notranslate"><span class="pre">Yes</span></code> and <code class="docutils literal notranslate"><span class="pre">No</span></code> to <code class="docutils literal notranslate"><span class="pre">1</span></code> and <code class="docutils literal notranslate"><span class="pre">0</span></code>, respectively.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x_df</strong> (<em>pd.DataFrame</em>) – Inventory report.</p></li>
+<li><p><strong>column_name</strong> (<em>str</em>) – Column with flag to be substituted.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>Dataframe with new flag type</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.dataprep.try_possible_names">
+<code class="sig-prename descclassname">optimization.datatools.dataprep.</code><code class="sig-name descname">try_possible_names</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x_df</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em>, <em class="sig-param"><span class="n">column_name</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">possible_names</span><span class="p">:</span> <span class="n">list</span></em><span class="sig-paren">)</span> &#x2192; pandas.core.frame.DataFrame<a class="headerlink" href="#optimization.datatools.dataprep.try_possible_names" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rename column if found in list of possible names.</p>
+<p>The method tries to find the column name in list of
+specified possible names for that given column. If matching
+value is found it renames the column using the name
+specified at the column_name variable.</p>
+<p>When this method is called by the columns_error_handling
+procedure, we don’t specify that this method needs to find the
+column. If no match is found, we simlpy pass as a result the x_df
+itself. I didn’t add any exception if match is not found because not
+necessarily that imposes an error, but chances are, the model will
+return with error.</p>
+<p class="rubric">Example</p>
+<ul>
+<li><p>Column report_date was not found at x_df.columns.</p></li>
+<li><p>So we loop through all the columns and try find if any of x_df columns has one of the following names:</p>
+<blockquote>
+<div><p>possible_names = [‘query_date’, …]</p>
+</div></blockquote>
+</li>
+<li><p>Found that name inside x_df columns so we rename the column from  query_date to column_name (= report_date)</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x_df</strong> (<em>pd.DataFrame</em>) – </p></li>
+<li><p><strong>column_name</strong> (<em>str</em>) – New column name.</p></li>
+<li><p><strong>possible_names</strong> (<em>list</em>) – List of possible column names.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>Inventory report after trying to find the column amongst possible column names list</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-optimization.datatools.extra_output">
+<span id="extra-output"></span><h2>Extra Output<a class="headerlink" href="#module-optimization.datatools.extra_output" title="Permalink to this headline">¶</a></h2>
+<p>Extra output scripts for creating output columns to optimization model.</p>
+<dl class="py class">
+<dt id="optimization.datatools.extra_output.FindLot">
+<em class="property">class </em><code class="sig-prename descclassname">optimization.datatools.extra_output.</code><code class="sig-name descname">FindLot</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inventory_report</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em>, <em class="sig-param"><span class="n">inv_bu</span><span class="p">:</span> <span class="n">object</span></em>, <em class="sig-param"><span class="n">item_id</span><span class="p">:</span> <span class="n">object</span></em>, <em class="sig-param"><span class="n">lot_id</span><span class="p">:</span> <span class="n">object</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimization.datatools.extra_output.FindLot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="simple">
+<dt>Determine Lot status (in terms of usage and availability) at receiver business units,</dt><dd><p>for each line of the optimization model results.</p>
+</dd>
+</dl>
+<p>Class determines if item from a given Lot is found or not
+on receiver business unit based on transfer recommendations and inventory reports.
+If Lot exists on receiver BU, we then determine its usage status that can be one of the following values:</p>
+<ul>
+<li><p><strong>found:</strong> BU has Lot we’re analyzing.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><strong>in use:</strong> BU is currently using that Lot.</p></li>
+<li><p><strong>in inventory:</strong> BU is not currently using that Lot.</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p><strong>not found:</strong> Lot is not found at the BU we’re analyzing. (Can only happen for receiving BU’s).</p></li>
+</ul>
+<dl class="py attribute">
+<dt id="optimization.datatools.extra_output.FindLot.inventory_report">
+<code class="sig-name descname">inventory_report</code><a class="headerlink" href="#optimization.datatools.extra_output.FindLot.inventory_report" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inventory report table with information about all items from all BU’s.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.datatools.extra_output.FindLot.inv_bu">
+<code class="sig-name descname">inv_bu</code><a class="headerlink" href="#optimization.datatools.extra_output.FindLot.inv_bu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Business Unit ID we’re analyzing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.datatools.extra_output.FindLot.item_id">
+<code class="sig-name descname">item_id</code><a class="headerlink" href="#optimization.datatools.extra_output.FindLot.item_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Item ID we’re analyzing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.datatools.extra_output.FindLot.lot_id">
+<code class="sig-name descname">lot_id</code><a class="headerlink" href="#optimization.datatools.extra_output.FindLot.lot_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lot ID we’re analyzing.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="optimization.datatools.extra_output.FindLot.expire_status">
+<code class="sig-name descname">expire_status</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">receiver_doi</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#optimization.datatools.extra_output.FindLot.expire_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get status for transfers made due to expiring items</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="optimization.datatools.extra_output.FindLot.get_status">
+<code class="sig-name descname">get_status</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">level</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'lot'</span></em><span class="sig-paren">)</span> &#x2192; pandas.core.frame.DataFrame<a class="headerlink" href="#optimization.datatools.extra_output.FindLot.get_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return table with matching Item or Lot IDs.</p>
+<p>If level is set to lot, filter inventory report by Item ID, Lot ID and BU ID.
+Else filter by Item and BU ID only.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>level</strong> (<em>str</em><em>, </em><em>optional</em>) – Level that we want to filter inventory report, by default “lot”.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Records with matching criteria.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>AssertionError</strong> – Raises an error when value passed to level is not <cite>lot</cite> or <cite>item</cite>.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="optimization.datatools.extra_output.FindLot.lot_usage">
+<code class="sig-name descname">lot_usage</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; Literal[in use, in inventory, not found]<a class="headerlink" href="#optimization.datatools.extra_output.FindLot.lot_usage" title="Permalink to this definition">¶</a></dt>
+<dd><p>Method used to determine if lot is in use, in inventory or not found at receiving business unit</p>
+<p>Rules for determining if lot status:
+1. If column bu_item_last_lot_depleted equals to “Y”, the Lot is in use</p>
+<ol class="arabic simple" start="2">
+<li><p>If no Lot for a given Item at the business unit has column bu_item_last_lot_depleted equal to “Y”, then             check column date_lot_added_to_bu_inv. If its value is the oldest among lots for that same             item/business unit, then consider it as being in use</p></li>
+<li><p>If Lot has column bu_item_last_lot_depleted not equal to “Y” but some other Lot does, and if method         <code class="docutils literal notranslate"><span class="pre">lot_status</span></code> doesn’t return empty, then lot is in inventory.</p></li>
+<li><p>If method <code class="docutils literal notranslate"><span class="pre">lot_status</span></code> returns empty, then lot is not found</p></li>
+</ol>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>Literal[in_use, in_inventory, not_found]</strong></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Returns one possible three values for lot usage         (in use, inventory of not found)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.extra_output.classify_row">
+<code class="sig-prename descclassname">optimization.datatools.extra_output.</code><code class="sig-name descname">classify_row</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">row</span><span class="p">:</span> <span class="n">pandas.core.series.Series</span></em>, <em class="sig-param"><span class="n">inventory_report</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#optimization.datatools.extra_output.classify_row" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used for classifying each transfer (row) generated by the optimization model</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.extra_output.expire_rows">
+<code class="sig-prename descclassname">optimization.datatools.extra_output.</code><code class="sig-name descname">expire_rows</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">receiver_status</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">curr_doi</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">min_days</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#optimization.datatools.extra_output.expire_rows" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Populates <code class="docutils literal notranslate"><span class="pre">Transfer</span> <span class="pre">Recommendation</span> <span class="pre">Reason</span></code> column, after determining that transfers</dt><dd><p>had a reduction o <strong>items to expire</strong>.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>receiver_status</strong> (<em>str</em>) – <p>Receiver status contains information about the situation of a given item at the receiver end. Can be:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">in</span> <span class="pre">use</span></code> : Receiver has that given item from that given Lot and is currently using it.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">in</span> <span class="pre">inventory</span></code> : Receiver has that given item <strong>from that given Lot</strong> but is <strong>NOT</strong> currently using it.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">not</span> <span class="pre">found</span></code> :  Receiver doesn’t have that given item <strong>from that given Lot</strong> (and is not using it since it          doesn’t have that Lot). _</p></li>
+</ul>
+</p></li>
+<li><p><strong>curr_doi</strong> (<em>str</em>) – <p>String with information about inventory balance from receiver BU.         Can be:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">surplus</span></code> : Receiver business unit has surplus, therefore in the transfer recommendation reason,         we will add at the end of the transfer reason “… at surplus ReBU”</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">shortage</span></code> : Receiver business unit has shortage, therefore in the transfer recommendation reason,         we will add at the end of the transfer reason “… at deficit ReBU”</p></li>
+</ul>
+</p></li>
+<li><p><strong>min_days</strong> (<em>str</em>) – Minimum days of supply</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>Transfer reason to be added to the column ``Transfer Recommendation Reason``</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">minimum</span> <span class="pre">days</span> <span class="pre">of</span> <span class="pre">transfers</span> <span class="pre">applies</span></code> is a metric based on a column from the original report. <code class="docutils literal notranslate"><span class="pre">minimum</span> <span class="pre">days</span> <span class="pre">of</span> <span class="pre">transfers</span> <span class="pre">applies</span></code> means that the total transferred     items accounts for an increase at the receiver days of inventory that is bigger than this <code class="docutils literal notranslate"><span class="pre">minimum</span> <span class="pre">days</span> <span class="pre">of</span> <span class="pre">transfers</span></code> threshold. For example, if the <code class="docutils literal notranslate"><span class="pre">minimum</span> <span class="pre">days</span> <span class="pre">of</span> <span class="pre">transfers</span></code>     is 14 days and you send to a receiver business unit 25 items and when we divide those transfers by the receivers <code class="docutils literal notranslate"><span class="pre">Avg</span> <span class="pre">Daily</span> <span class="pre">Consumption</span> <span class="pre">Rate</span></code> results on total increase on days of inventory     of 30 days (in this case this would happen if <code class="docutils literal notranslate"><span class="pre">Avg</span> <span class="pre">Daily</span> <span class="pre">Consumption</span> <span class="pre">Rate</span></code> = 0.833 Items/day) then <code class="docutils literal notranslate"><span class="pre">minimum</span> <span class="pre">days</span> <span class="pre">of</span> <span class="pre">transfers</span> <span class="pre">applies</span></code>.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.extra_output.extra_output">
+<code class="sig-prename descclassname">optimization.datatools.extra_output.</code><code class="sig-name descname">extra_output</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inventory_report</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em><span class="sig-paren">)</span> &#x2192; pandas.core.frame.DataFrame<a class="headerlink" href="#optimization.datatools.extra_output.extra_output" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create extra output table.</p>
+<dl class="simple">
+<dt><strong>Steps:</strong></dt><dd><ol class="arabic simple">
+<li><p>Select necessary columns.</p></li>
+<li><p>Rename necessary columns according to their specified names.</p></li>
+</ol>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>inventory_report</strong> (<em>pd.DataFrame</em>) – Original inventory report.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>pd.DataFrame</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Extra output table.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.extra_output.get_status">
+<code class="sig-prename descclassname">optimization.datatools.extra_output.</code><code class="sig-name descname">get_status</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inventory_report</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em>, <em class="sig-param"><span class="n">row</span><span class="p">:</span> <span class="n">pandas.core.series.Series</span></em>, <em class="sig-param"><span class="n">what</span><span class="p">:</span> <span class="n">str</span> <span class="o">=</span> <span class="default_value">'both'</span></em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#optimization.datatools.extra_output.get_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get status of Lot for receiver and sender BU.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inventory_report</strong> (<em>pd.DataFrame</em>) – Table with inventory report.</p></li>
+<li><p><strong>row</strong> (<em>pd.Series</em>) – Row from optimization report we’re analyzing.</p></li>
+<li><p><strong>what</strong> (<em>str</em><em>, </em><em>optional</em>) – Get status for both receiver and sender or only receiver or receiver DOI status, by default “both”.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>str</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Status of lot at receiver bu and sender bu</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.extra_output.min_days_apply">
+<code class="sig-prename descclassname">optimization.datatools.extra_output.</code><code class="sig-name descname">min_days_apply</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">row</span><span class="p">:</span> <span class="n">pandas.core.series.Series</span></em>, <em class="sig-param"><span class="n">inventory_report</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#optimization.datatools.extra_output.min_days_apply" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check if transfer recommendation is smaller than minimum threshold</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.extra_output.qty_to_optimize">
+<code class="sig-prename descclassname">optimization.datatools.extra_output.</code><code class="sig-name descname">qty_to_optimize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df_inventory</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em>, <em class="sig-param"><span class="n">item_id</span><span class="p">:</span> <span class="n">object</span></em><span class="sig-paren">)</span> &#x2192; tuple<a class="headerlink" href="#optimization.datatools.extra_output.qty_to_optimize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the maximum amount of inventory that can be optimized in terms of <code class="docutils literal notranslate"><span class="pre">Items</span> <span class="pre">to</span> <span class="pre">Expire</span></code> and <code class="docutils literal notranslate"><span class="pre">Inventory</span> <span class="pre">Balance</span></code></p>
+<p>This method is called by <code class="xref py py-meth docutils literal notranslate"><span class="pre">optimization.model.main.ModelOptimization.optimize</span></code>
+in order to calculate the theoretical maximum quantity that can be optimized for a given <code class="docutils literal notranslate"><span class="pre">Item</span> <span class="pre">ID</span></code> in terms of
+<code class="docutils literal notranslate"><span class="pre">Items</span> <span class="pre">to</span> <span class="pre">Expire</span></code> and <code class="docutils literal notranslate"><span class="pre">Inventory</span> <span class="pre">Balance</span></code>.</p>
+<p>In order to obtain these values (<code class="docutils literal notranslate"><span class="pre">Items</span> <span class="pre">to</span> <span class="pre">Expire</span></code> and <code class="docutils literal notranslate"><span class="pre">Inventory</span> <span class="pre">Balance</span></code> theoretical maximum) we filter the inventory
+using the <code class="docutils literal notranslate"><span class="pre">Item</span> <span class="pre">ID</span></code> column, then we group all values by business unit, aggregating into sepparate fields the negative amount
+of inventory balance from the positive part. Then we aggregate another time by <code class="docutils literal notranslate"><span class="pre">Item</span> <span class="pre">ID</span></code>. For inventory balance,
+the <strong>theoretical maximum inventory quantity that can be optimized will be the smallest number</strong> between <code class="docutils literal notranslate"><span class="pre">Surplus</span></code> and <code class="docutils literal notranslate"><span class="pre">Shortage</span></code>
+(since we can only reduce shortage from one BU by eliminating surplus from another).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df_inventory</strong> (<em>pd.DataFrame</em>) – Inventory DataFrame.</p></li>
+<li><p><strong>item_id</strong> (<em>object</em>) – <code class="docutils literal notranslate"><span class="pre">Item</span> <span class="pre">ID</span></code> that we want to determine the maximum inventory that can be optimized.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>tuple</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Total $ amount of inventory balance and items to expire (in that specific order) that can be optimized.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.extra_output.surplus_rows">
+<code class="sig-prename descclassname">optimization.datatools.extra_output.</code><code class="sig-name descname">surplus_rows</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">receiver_status</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">sender_status</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span> &#x2192; str<a class="headerlink" href="#optimization.datatools.extra_output.surplus_rows" title="Permalink to this definition">¶</a></dt>
+<dd><p>Classify rows with surplus at sender BU.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>receiver_status</strong> (<em>str</em>) – Status of Lot for receiver BU.</p></li>
+<li><p><strong>sender_status</strong> (<em>str</em>) – Status of Lot for sender BU.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>str</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Recommendation reason classification for surplus</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.extra_output.transfer_reason">
+<code class="sig-prename descclassname">optimization.datatools.extra_output.</code><code class="sig-name descname">transfer_reason</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">inventory_report</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em>, <em class="sig-param"><span class="n">optimization_results</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em><span class="sig-paren">)</span> &#x2192; pandas.core.frame.DataFrame<a class="headerlink" href="#optimization.datatools.extra_output.transfer_reason" title="Permalink to this definition">¶</a></dt>
+<dd><p>Populate <code class="docutils literal notranslate"><span class="pre">Transfer</span> <span class="pre">Recommendation</span> <span class="pre">Reason</span></code> column.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inventory_report</strong> (<em>pd.DataFrame</em>) – Original inventory report <strong>after data ingestion and validation processes</strong></p></li>
+<li><p><strong>optimization_results</strong> (<em>pd.DataFrame</em>) – Transfer recommendations generated by the optimization model</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Transfer results with added <code class="docutils literal notranslate"><span class="pre">Transfer</span> <span class="pre">Recommendation</span> <span class="pre">Reason</span></code> column</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The cleaned version of inventory report is obtained inside     <a class="reference internal" href="optimization.model.html#optimization.model.main.main" title="optimization.model.main.main"><code class="xref py py-meth docutils literal notranslate"><span class="pre">optimization.model.main.main()</span></code></a> method.</p>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-optimization.datatools.pipelines">
+<span id="pipelines"></span><h2>Pipelines<a class="headerlink" href="#module-optimization.datatools.pipelines" title="Permalink to this headline">¶</a></h2>
+<p>Pipelines used for adjusting input inventory reports to be passed to optimization model.</p>
+<dl class="py function">
+<dt id="optimization.datatools.pipelines.calculations_pipeline">
+<code class="sig-prename descclassname">optimization.datatools.pipelines.</code><code class="sig-name descname">calculations_pipeline</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x_df</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em><span class="sig-paren">)</span> &#x2192; pandas.core.frame.DataFrame<a class="headerlink" href="#optimization.datatools.pipelines.calculations_pipeline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Based on our input reports, calculate necessary columns that will we used by the optimization model.</p>
+<p><strong>Added Calculated Columns:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Inventory</span> <span class="pre">Balance</span></code>: How far from the target number of days of inventory each item at each business unit are.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Days</span> <span class="pre">to</span> <span class="pre">Expire</span></code>: Total number of days that each Lot item has before expiring.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Items</span> <span class="pre">to</span> <span class="pre">Expire</span></code>: Based on the business unit consumption rate for that item, and the quantity it has on hand,        how many of those items will expire before the business unit has a chance to consume them.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x_df</strong> (<em>pd.DataFrame</em>) – Combined Inventory report for lot and non-lot items.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>pd.DataFrame</strong> – Table with additional columns for <code class="docutils literal notranslate"><span class="pre">inventory</span> <span class="pre">balance</span></code> and <code class="docutils literal notranslate"><span class="pre">items</span> <span class="pre">to</span> <span class="pre">expire</span></code></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you want to add new calculations to the report, we recommend adding the calculations to this pipeline.
+That’s because there are other steps that are performed before that clean our input data and performing the calculations
+before might give you bad results.</p>
+</div>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.pipelines.clean_data">
+<code class="sig-prename descclassname">optimization.datatools.pipelines.</code><code class="sig-name descname">clean_data</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x_df</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em><span class="sig-paren">)</span> &#x2192; pandas.core.frame.DataFrame<a class="headerlink" href="#optimization.datatools.pipelines.clean_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filter input data so we only consider data-points that can be optimized and that we’re removing possible data
+with errors</p>
+<p>The filters that are applied in this function take into consideration
+not only the data types that the columns have (or that they should have).
+It also considers aspects related to what that column really means.</p>
+<p class="rubric">Example</p>
+<p>The column <code class="docutils literal notranslate"><span class="pre">bu_qty_on_hand</span></code> represents the quantity of items a given BU has.
+It can be expected that this column should have only numerical values that are integers
+(we can’t have half an item) but also that they should be, at least theoretically bigger
+or equal to zero.</p>
+<p><strong>Steps</strong></p>
+<ul class="simple">
+<li><p><strong>Step 1:</strong> Replaces columns can_transfer_inventory and can_receive_inventory values from [Y, N] to [1, 0]</p></li>
+<li><p><strong>Step 2:</strong> Changes columns with rows that have dates from str to real dates dtype</p></li>
+<li><p><strong>Step 3:</strong> Fill blank values tha can impact in the model</p></li>
+<li><p><strong>Step 4:</strong> Filter out rows with price value equal to zero.</p></li>
+<li><p><strong>Step 5:</strong> Make sure BU can at least receive or transfer inventory</p></li>
+<li><p><strong>Step 6:</strong> Filter out SKUs that have only one BU that uses them</p></li>
+<li><p><strong>Step 7:</strong> Removes expired items. This is not the same as deleting the entire row.     We just consider that given Lot to have 0 items on hand.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x_df</strong> (<em>pd.DataFrame</em>) – Dataframe with inventory data.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>pd.DataFrame</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Cleaned dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.pipelines.data_pipeline">
+<code class="sig-prename descclassname">optimization.datatools.pipelines.</code><code class="sig-name descname">data_pipeline</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lot_df</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em>, <em class="sig-param"><span class="n">nonlot_df</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em><span class="sig-paren">)</span> &#x2192; pandas.core.frame.DataFrame<a class="headerlink" href="#optimization.datatools.pipelines.data_pipeline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pipeline with data transformations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lot_df</strong> (<em>pd.DataFrame</em>) – Inventory report for lot items.</p></li>
+<li><p><strong>nonlot_df</strong> (<em>pd.DataFrame</em>) – Inventory report for non-lot items.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>pd.DataFrame</strong></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Complete inventory report for current month</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.pipelines.doi_balance_pipeline">
+<code class="sig-prename descclassname">optimization.datatools.pipelines.</code><code class="sig-name descname">doi_balance_pipeline</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x_df</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em><span class="sig-paren">)</span> &#x2192; pandas.core.frame.DataFrame<a class="headerlink" href="#optimization.datatools.pipelines.doi_balance_pipeline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pipeline for calculating DOI (days of inventory) balance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x_df</strong> (<em>pd.DataFrame</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.datatools.pipelines.load_data_pipeline">
+<code class="sig-prename descclassname">optimization.datatools.pipelines.</code><code class="sig-name descname">load_data_pipeline</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x_df</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em>, <em class="sig-param"><span class="n">columns_list</span><span class="p">:</span> <span class="n">list</span></em>, <em class="sig-param"><span class="n">non_lot</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">True</span></em><span class="sig-paren">)</span> &#x2192; pandas.core.frame.DataFrame<a class="headerlink" href="#optimization.datatools.pipelines.load_data_pipeline" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pipeline used for loading input files and selection necessary columns.</p>
+<p>This function is called by <code class="docutils literal notranslate"><span class="pre">data_pipeline</span></code> and the following steps are performed:</p>
+<ul class="simple">
+<li><p><strong>Step 1:</strong> <code class="docutils literal notranslate"><span class="pre">clean_names</span></code> Clean column names. This step makes sure no inconsistencies on column      names will affect the optimization model.</p></li>
+<li><p><strong>Step 2:</strong> <code class="docutils literal notranslate"><span class="pre">columns_error_handling</span></code> If one of the necessary columns needed by the model is not found,     this step tries to find the column based on other possible names for that given column.     These lists of possible alternative column names are stored inside the method and were populated     with names seen on different inventory reports throughout development phase.</p></li>
+<li><p><strong>Step 3:</strong> <code class="docutils literal notranslate"><span class="pre">columns_needed</span></code> After making sure all columns were found, select all necessary columns.     These columns are required either on the <strong>final output report or by the model</strong>.</p></li>
+<li><p><strong>Step 4 (For Non Lot Only):</strong> Populates column <code class="docutils literal notranslate"><span class="pre">lot_id</span></code> with <strong>NONLOT</strong>. Column is passed      with null values and this can impact some processes, since later on both lot and non lot reports       are joined together.</p></li>
+<li><p><strong>Step 5 (For Non Lot Only):</strong> Populate column <code class="docutils literal notranslate"><span class="pre">lot_qty_on_hand</span></code> with same value as <code class="docutils literal notranslate"><span class="pre">bu_qty_on_hand</span></code> for     the same reasons as <strong>Step 5</strong>.</p></li>
+<li><p><strong>Step 6 (For Non Lot Only):</strong> Populate column <code class="docutils literal notranslate"><span class="pre">expire_date</span></code> with value that in general terms     can be considered infinite for the same reasons as <strong>Step 5</strong> and <strong>Step 6</strong>.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x_df</strong> (<em>pd.DataFrame Dataframe with lot</em><em> or </em><em>non-lot input input data.</em>) – </p></li>
+<li><p><strong>columns_list</strong> (<em>list</em>) – List of columns used throughout the model.</p></li>
+<li><p><strong>non_lot</strong> (<em>bool</em><em>, </em><em>optional Flag if input data being processed is for lot</em>) – or non lot inventory. If <strong>True</strong> then model assumes <strong>non lot</strong> inventory, else <strong>lot</strong>, by default True.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Dataframe with lot or non-lot normalized data.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>During all the described processes, all changes to input data are either informed for user by raising and error
+or by adding it to the <code class="docutils literal notranslate"><span class="pre">log</span> <span class="pre">file</span></code>.</p>
+</div>
+</dd></dl>
+
+</div>
+<div class="section" id="module-optimization.datatools">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-optimization.datatools" title="Permalink to this headline">¶</a></h2>
+<p>Scripts used to generate necessary columns and perform data cleanning steps.</p>
+<div class="section" id="submodules">
+<h3>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h3>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#module-optimization.datatools.dataprep" title="optimization.datatools.dataprep"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dataprep</span></code></a></p></td>
+<td><p>Functions created for data transformation or validation processes</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#module-optimization.datatools.pipelines" title="optimization.datatools.pipelines"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pipelines</span></code></a></p></td>
+<td><p>Pipelines used for adjusting input inventory reports to be passed to optimization model.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#module-optimization.datatools.extra_output" title="optimization.datatools.extra_output"><code class="xref py py-obj docutils literal notranslate"><span class="pre">extra_output</span></code></a></p></td>
+<td><p>Extra output scripts for creating output columns to optimization model.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="optimization.model.html" title="previous page">Model</a>
+    <a class='right-next' id="next-link" href="optimization.opt_tools.html" title="next page">Optimization Tools</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2020-2021 Quest Diagnostics Incorporated. All rights reserved..<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

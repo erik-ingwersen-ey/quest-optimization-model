@@ -1,0 +1,11 @@
+pandas
+PuLP
+sentry_sdk
+numpy
+tqdm
+dataclasses
+py
+pytest
+xlrd
+cryptography
+pyassemble

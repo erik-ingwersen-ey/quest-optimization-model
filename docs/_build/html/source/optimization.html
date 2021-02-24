@@ -1,0 +1,1459 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Optimization Model &#8212; Quest Optimization Model 1.2 documentation</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/thebelab-helper.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Model" href="optimization.model.html" />
+    <link rel="prev" title="Quest Diagnostics Optimization Model Technical Documentation" href="../index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    <a class="navbar-brand" href="../index.html">
+    
+      <p class="title">Quest Optimization Model</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="">Optimization Model</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="guides.html">User Guides</a>
+        </li>
+        
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+          
+            
+                <li class="">
+                    <a href="optimization.model.html">Model</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="optimization.datatools.html">Datatools</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="optimization.opt_tools.html">Optimization Tools</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="optimization.configuration.html">Model Configurations</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="optimization.tests.html">Tests</a>
+                </li>
+            
+          
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#module-optimization.solspace" class="nav-link">Solution Space</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#module-optimization.constants" class="nav-link">Constants</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#module-optimization.debug" class="nav-link">Debug</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#module-optimization.tests" class="nav-link">Tests</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#module-optimization" class="nav-link">Module contents</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#submodules" class="nav-link">Submodules</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="optimization-model">
+<h1>Optimization Model<a class="headerlink" href="#optimization-model" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="optimization.model.html">Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="optimization.model.html#module-optimization.model.main">Main</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimization.model.html#module-optimization.model.optimizer">Optimizer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimization.model.html#module-optimization.model">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="optimization.model.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="optimization.datatools.html">Datatools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="optimization.datatools.html#module-optimization.datatools.dataprep">Dataprep</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimization.datatools.html#module-optimization.datatools.extra_output">Extra Output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimization.datatools.html#module-optimization.datatools.pipelines">Pipelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimization.datatools.html#module-optimization.datatools">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="optimization.datatools.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="optimization.opt_tools.html">Optimization Tools</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="optimization.opt_tools.html#module-optimization.opt_tools.aux_funcs">Auxiliary Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimization.opt_tools.html#module-optimization.opt_tools.load_data">Load Data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimization.opt_tools.html#module-optimization.opt_tools">Module Contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="optimization.opt_tools.html#submodules">Submodules</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="optimization.configuration.html">Model Configurations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="optimization.configuration.html#basic-configurations">Basic Configurations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimization.configuration.html#columns-used-by-the-model">Columns Used by the Model</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="optimization.tests.html">Tests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="optimization.tests.html#module-optimization.tests.unittest_test_extra_output">Extra Outputs Unittests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimization.tests.html#module-optimization.tests">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="module-optimization.solspace">
+<span id="solution-space"></span><h2>Solution Space<a class="headerlink" href="#module-optimization.solspace" title="Permalink to this headline">¶</a></h2>
+<p>Scripts used for generating the <strong>solution space.</strong></p>
+<p>Python module used to generate the solution space that is then used by <code class="docutils literal notranslate"><span class="pre">optimizer</span></code> module to generate the
+optimization transfer recommendations.</p>
+<p>In simple terms this module contains one class named <a class="reference internal" href="#optimization.solspace.SolutionSpace" title="optimization.solspace.SolutionSpace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">optimization.solspace.SolutionSpace</span></code></a> that is used to:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Filter inventory dataframe for the SKU that we’re analyzing;</p></li>
+<li><p>Make one aggregation at a BU granularity for determining providing BU’s and another at Lot ID granularity for determining receiving BU’s/Lot ID’s</p></li>
+<li><p>Query both grouping results, filtering for BU’s that don’t have items to expire (those will be the receiver BU’s) and for those BU’s that have either items to expire or surplus inventory consider them as providers.</p></li>
+<li><p>Create the solution space matrix adding column-wise, receiving BU’s and row-wise providing  BU’s/Lot ID’s’.</p></li>
+<li><p>Add extra columns to the solution matrix that will be used on the optimization model constraints or objective function definitions.</p></li>
+</ol>
+</div></blockquote>
+<dl class="py class">
+<dt id="optimization.solspace.SolutionSpace">
+<em class="property">class </em><code class="sig-prename descclassname">optimization.solspace.</code><code class="sig-name descname">SolutionSpace</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df_inventory</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em>, <em class="sig-param"><span class="n">item_id</span><span class="p">:</span> <span class="n">object</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimization.solspace.SolutionSpace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Creates a basic solution space for the given inventory.</p>
+<p>This class uses the module constants <code class="docutils literal notranslate"><span class="pre">PROVIDING_COLUMNS</span></code> and <code class="docutils literal notranslate"><span class="pre">RECEIVING_COLUMNS</span></code>
+for mapping additional values to the solution space matrix rows and columns
+that might be used by the optimization model in the next step.</p>
+<p><strong>Receivers</strong></p>
+<ul>
+<li><p><em>Granularity:</em> <code class="docutils literal notranslate"><span class="pre">BU</span> <span class="pre">ID</span></code></p></li>
+<li><p><em>Conditions:</em></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>BU can’t have items to expire. It might have surplus though.</p></li>
+<li><p>Adding BU’s with surplus at the receiving list should         not affect the model, because of the <strong>elastic constraints</strong>. Transferring         items to BU’s that already have surplus (essentially making that BU surplus even higher)         penalize the objective function, therefore the model will only do so if it minimizes items to expire.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p><strong>Providers</strong></p>
+<blockquote>
+<div><ul>
+<li><p><em>Granularity:</em> <code class="docutils literal notranslate"><span class="pre">Lot</span> <span class="pre">ID</span></code></p></li>
+<li><p><em>Conditions:</em></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Needs to have items to expire (Lot-wise) or the BU has surplus.</p></li>
+<li><p>The total monetary value of possible items that can be transferred             needs to be greater than minimum shipment value.</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<dl class="py attribute">
+<dt id="optimization.solspace.SolutionSpace.EXTRA_COLUMNS">
+<code class="sig-name descname">EXTRA_COLUMNS</code><a class="headerlink" href="#optimization.solspace.SolutionSpace.EXTRA_COLUMNS" title="Permalink to this definition">¶</a></dt>
+<dd><p>Quantity of extra columns that store information about <code class="docutils literal notranslate"><span class="pre">Providing</span>
+<span class="pre">BU's</span></code> that are either used to define the <strong>optimization problem</strong> or are used in the <strong>output file.</strong></p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.solspace.SolutionSpace.EXTRA_ROWS">
+<code class="sig-name descname">EXTRA_ROWS</code><a class="headerlink" href="#optimization.solspace.SolutionSpace.EXTRA_ROWS" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Quantity of extra columns that store information about <code class="docutils literal notranslate"><span class="pre">Receiving</span> <span class="pre">BU's</span></code> that are either used to define the</dt><dd><p><strong>optimization problem</strong> or are used in the <strong>output file.</strong></p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For minimum shipment value we’re considering total monetary value of the Lot
+and not the BU. Since items from different Lots but from from the same BU can
+be transferred, we theoretically should perform this filter using BU total values.
+We’re not doing so at the moment for 2 reasons: first there aren’t so many items
+with price bellow <span class="math notranslate nohighlight">\($50.00\)</span> and even if the model filters out those values the total
+amount that we’re not considering in the optimization is very small in comparisson
+to the rest of the SKUs.</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference external" href="http://coin-or.github.io/pulp/guides/how_to_elastic_constraints.html">coin-or.github.io/pulp/guides/how_to_elastic_constraints.html</a></p>
+<p><a class="reference external" href="http://royalsocietypublishing.org/doi/10.1098/rsta.2007.2122">royalsocietypublishing.org/doi/10.1098/rsta.2007.2122</a></p>
+<p><a class="reference external" href="http://en.wikipedia.org/wiki/Constrained_optimization">en.wikipedia.org/wiki/Constrained_optimization</a></p>
+</div>
+<dl class="py attribute">
+<dt id="id0">
+<code class="sig-name descname">EXTRA_COLUMNS</code><em class="property"> = 30</em><a class="headerlink" href="#id0" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id1">
+<code class="sig-name descname">EXTRA_ROWS</code><em class="property"> = 25</em><a class="headerlink" href="#id1" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.solspace.SolutionSpace.PROVIDING_AGG">
+<code class="sig-name descname">PROVIDING_AGG</code><em class="property"> = {'approver_contact_email': 'first', 'average_item_daily_use': 'mean', 'bu_address': 'first', 'bu_descrip': 'first', 'bu_doi_balance': 'mean', 'bu_item_qty_in_transfer': 'mean', 'bu_item_status': 'first', 'bu_oh_days_supply': 'mean', 'bu_oh_transit_days_supply': 'mean', 'bu_qty_on_hand': 'mean', 'bu_region': 'first', 'can_receive_inventory': 'min', 'can_transfer_inventory': 'min', 'chart_of_accounts': 'first', 'days_to_expire': 'mean', 'default_shipment_days': 'mean', 'delta_doi': 'mean', 'doi_balance': 'sum', 'doi_target': 'mean', 'expire_date': 'first', 'item_descrip': 'first', 'items_to_expire': 'sum', 'lot_qty_on_hand': 'sum', 'min_shipment_value': 'mean', 'onsite_contact_email': 'first', 'price': 'mean', 'std_uom': 'first', 'supplier_name': 'first'}</em><a class="headerlink" href="#optimization.solspace.SolutionSpace.PROVIDING_AGG" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.solspace.SolutionSpace.PROVIDING_GROUPBY">
+<code class="sig-name descname">PROVIDING_GROUPBY</code><em class="property"> = ['inv_bu', 'lot_id']</em><a class="headerlink" href="#optimization.solspace.SolutionSpace.PROVIDING_GROUPBY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.solspace.SolutionSpace.RECEIVING_AGG">
+<code class="sig-name descname">RECEIVING_AGG</code><em class="property"> = {'approver_contact_email': 'first', 'average_item_daily_use': 'mean', 'bu_address': 'first', 'bu_descrip': 'first', 'bu_doi_balance': 'mean', 'bu_item_qty_in_transfer': 'mean', 'bu_item_status': 'first', 'bu_oh_days_supply': 'mean', 'bu_oh_transit_days_supply': 'mean', 'bu_qty_on_hand': 'mean', 'bu_region': 'first', 'can_receive_inventory': 'min', 'can_transfer_inventory': 'min', 'chart_of_accounts': 'first', 'default_shipment_days': 'mean', 'delta_doi': 'mean', 'doi_target': 'mean', 'item_descrip': 'first', 'items_to_expire': 'sum', 'min_shipment_value': 'mean', 'onsite_contact_email': 'first', 'price': 'mean', 'std_uom': 'first', 'supplier_name': 'first'}</em><a class="headerlink" href="#optimization.solspace.SolutionSpace.RECEIVING_AGG" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.solspace.SolutionSpace.RECEIVING_GROUPBY">
+<code class="sig-name descname">RECEIVING_GROUPBY</code><em class="property"> = ['inv_bu']</em><a class="headerlink" href="#optimization.solspace.SolutionSpace.RECEIVING_GROUPBY" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="optimization.solspace.SolutionSpace.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df_inventory</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em>, <em class="sig-param"><span class="n">item_id</span><span class="p">:</span> <span class="n">object</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimization.solspace.SolutionSpace.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>SolutionSpace class initialization</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df_inventory</strong> (<em>pd.DataFrame</em>) – Inventory table</p></li>
+<li><p><strong>item_id</strong> (<em>obj</em>) – Item ID being analyzed</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="optimization.solspace.SolutionSpace._create_matrix">
+<code class="sig-name descname">_create_matrix</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">providing_list</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em>, <em class="sig-param"><span class="n">receiving_list</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em><span class="sig-paren">)</span> &#x2192; numpy.ndarray<a class="headerlink" href="#optimization.solspace.SolutionSpace._create_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method is used to create the solution space matrix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>providing_list</strong> (<em>pd.DataFrame</em>) – List with providing BU ID’s.</p></li>
+<li><p><strong>receiving_list</strong> (<em>pd.DataFrame</em>) – List with receiving BU and Lot ID’s.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>sol_space</strong> – Numpy array to be used in the optimization model.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>np.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="optimization.solspace.SolutionSpace._get_bu_list">
+<code class="sig-name descname">_get_bu_list</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">group_by_list</span><span class="p">:</span> <span class="n">list</span></em>, <em class="sig-param"><span class="n">agg_dict</span><span class="p">:</span> <span class="n">dict</span></em><span class="sig-paren">)</span> &#x2192; pandas.core.frame.DataFrame<a class="headerlink" href="#optimization.solspace.SolutionSpace._get_bu_list" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filter for BU’s that have the item that we’re trying to optimize and
+groups values according to the specified <code class="docutils literal notranslate"><span class="pre">group_by_list</span></code> and <code class="docutils literal notranslate"><span class="pre">agg_dict</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>group_by_list</strong> (<em>list</em>) – List of columns to be used at the groupby.</p></li>
+<li><p><strong>agg_dict</strong> (<em>dict</em>) – Dictionary with columns and aggregation type to be used at the groupby.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>pd.DataFrame</strong> – DataFrame with filtered and grouped values.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="optimization.solspace.SolutionSpace._get_providing">
+<code class="sig-name descname">_get_providing</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sku_prov</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em><span class="sig-paren">)</span> &#x2192; pandas.core.frame.DataFrame<a class="headerlink" href="#optimization.solspace.SolutionSpace._get_providing" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get list of providing BU’s by Lot.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>sku_prov</strong> (<em>pd.DataFrame</em>) – Pandas dataframe with possible providing BU’s.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>pd.DataFrame</strong> – BU’s to be considered as providers.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="optimization.solspace.SolutionSpace._get_receiving">
+<code class="sig-name descname">_get_receiving</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sku_rec</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em><span class="sig-paren">)</span> &#x2192; pandas.core.frame.DataFrame<a class="headerlink" href="#optimization.solspace.SolutionSpace._get_receiving" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get list of receiving BU’s.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>sku_rec</strong> (<em>pd.DataFrame</em>) – Pandas dataframe with possible receiving BU’s.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>pd.DataFrame</strong> – BU’s to be considered as receivers.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="optimization.solspace.SolutionSpace._populate_solspace">
+<code class="sig-name descname">_populate_solspace</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sol_space</span><span class="p">:</span> <span class="n">numpy.matrix</span></em>, <em class="sig-param"><span class="n">bu_prov</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em>, <em class="sig-param"><span class="n">bu_rec</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em><span class="sig-paren">)</span> &#x2192; pandas.core.frame.DataFrame<a class="headerlink" href="#optimization.solspace.SolutionSpace._populate_solspace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Populate the sol_space 2-D array with the given data for provider and receiver BU’s.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sol_space</strong> (<em>np.matrix</em>) – Final solution space to be used in the next step
+by the optimization model</p></li>
+<li><p><strong>bu_prov</strong> (<em>pd.DataFrame</em>) – BU’s to be considered as providers.</p></li>
+<li><p><strong>bu_rec</strong> (<em>pd.DataFrame</em>) – BU’s to be considered as receivers.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>pd.DataFrame</strong> – Solution space with added extra columns.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><code class="docutils literal notranslate"><span class="pre">PROVIDING_COLUMNS</span></code> for information of what extra columns for providing BU’s
+are being added to the solution matrix.</p>
+<p><code class="docutils literal notranslate"><span class="pre">RECEIVING_COLUMNS</span></code> for information of what extra columns for receiving BU’s
+are being added to the solution matrix.</p>
+<p>If you want to add new columns to the solution matrix, change both dictionaries accordingly
+and the rest of the code will adapt automatically.</p>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt id="optimization.solspace.SolutionSpace._rounding_columns">
+<em class="property">static </em><code class="sig-name descname">_rounding_columns</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">x_df</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em><span class="sig-paren">)</span> &#x2192; pandas.core.frame.DataFrame<a class="headerlink" href="#optimization.solspace.SolutionSpace._rounding_columns" title="Permalink to this definition">¶</a></dt>
+<dd><p>Round the values of the columns to the nearest 2 - byte order.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>x_df</strong> (<em>pd.DataFrame</em>) – Dataframe to be used for performing the pipe transformations.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>pd.DataFrame</strong> – Transformed dataframe.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="optimization.solspace.SolutionSpace.filter_solspace">
+<em class="property">static </em><code class="sig-name descname">filter_solspace</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">provider</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em>, <em class="sig-param"><span class="n">receiver</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em><span class="sig-paren">)</span> &#x2192; Union<span class="p">[</span>None<span class="p">, </span>bool<span class="p">]</span><a class="headerlink" href="#optimization.solspace.SolutionSpace.filter_solspace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply check to solution matrix to check if Item ID can be optimized.</p>
+<p>This filter runs after we obtain <code class="docutils literal notranslate"><span class="pre">bu_prov</span></code> and <code class="docutils literal notranslate"><span class="pre">bu_rec</span></code> to check if there
+are any BU’s that can be optimized. This check is done by verifying the following conditions:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">receiver[Columns.average_item_daily_use].sum()</span> <span class="pre">!=</span> <span class="pre">0</span></code>: If all receiver BU’s have an average         consumption rate of zero, the are no possible BU’s that will reduce inventory balance or items to expire</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>provider</strong> (<em>pd.DataFrame</em>) – DataFrame with information about all providing lots from all business units.</p></li>
+<li><p><strong>receiver</strong> (<em>pd.DataFrame</em>) – DataFrame with information about all receiving business units.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>If all tests were passed, returns <code class="docutils literal notranslate"><span class="pre">True</span></code> else returns nothing</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Union[None, bool]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="optimization.solspace.SolutionSpace.sol_matrix">
+<code class="sig-name descname">sol_matrix</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; pandas.core.frame.DataFrame<a class="headerlink" href="#optimization.solspace.SolutionSpace.sol_matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create the solution space “matrix”.</p>
+<p>Based on the item ID of our inventory database, it
+creates the matrix that contains in the first column
+all the BU’s that can provide items and at the first
+row all BU’s that can receive items.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>sol_space</strong> – Numpy matrix to be used in the optimization model.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-optimization.constants">
+<span id="constants"></span><h2>Constants<a class="headerlink" href="#module-optimization.constants" title="Permalink to this headline">¶</a></h2>
+<p>Constants used throughout optimization model scripts.</p>
+<dl class="py class">
+<dt id="optimization.constants.Columns">
+<em class="property">class </em><code class="sig-prename descclassname">optimization.constants.</code><code class="sig-name descname">Columns</code><a class="headerlink" href="#optimization.constants.Columns" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Specify inventory input report column names.</p>
+<p>Below you can find <strong>all names of columns</strong> that are either <strong>created or used</strong> by the model.</p>
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.inv_bu">
+<code class="sig-name descname">inv_bu</code><a class="headerlink" href="#optimization.constants.Columns.inv_bu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column from inventory report that stores the ID of each business unit</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.item_id">
+<code class="sig-name descname">item_id</code><a class="headerlink" href="#optimization.constants.Columns.item_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column from inventory report with ID from every item</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.lot_id">
+<code class="sig-name descname">lot_id</code><a class="headerlink" href="#optimization.constants.Columns.lot_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column from inventory report with ID from every lot</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.report_date">
+<code class="sig-name descname">report_date</code><a class="headerlink" href="#optimization.constants.Columns.report_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column from inventory report with date the report was generated</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.expire_date">
+<code class="sig-name descname">expire_date</code><a class="headerlink" href="#optimization.constants.Columns.expire_date" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column from inventory report with lot expiration date</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.average_item_daily_use">
+<code class="sig-name descname">average_item_daily_use</code><a class="headerlink" href="#optimization.constants.Columns.average_item_daily_use" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column from inventory report that stores the average item daily usage</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.bu_qty_on_hand">
+<code class="sig-name descname">bu_qty_on_hand</code><a class="headerlink" href="#optimization.constants.Columns.bu_qty_on_hand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column from inventory report with total quantity of items at each business unit</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.lot_qty_on_hand">
+<code class="sig-name descname">lot_qty_on_hand</code><a class="headerlink" href="#optimization.constants.Columns.lot_qty_on_hand" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column from inventory report with quantity of items from a specific lot at each business unit</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.doi_target">
+<code class="sig-name descname">doi_target</code><a class="headerlink" href="#optimization.constants.Columns.doi_target" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column from inventory report that tells us the target quantity of days each of inventory each item
+at every business unit should have</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.days_of_inventory">
+<code class="sig-name descname">days_of_inventory</code><a class="headerlink" href="#optimization.constants.Columns.days_of_inventory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column to store the calculated field values with quantity of days of inventory for
+for every item at each business unit</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.cum_doi">
+<code class="sig-name descname">cum_doi</code><a class="headerlink" href="#optimization.constants.Columns.cum_doi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column to store the calculated field values with cumulative quantity of days of inventory for
+for every lot on a business unit</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.cum_doi_balance">
+<code class="sig-name descname">cum_doi_balance</code><a class="headerlink" href="#optimization.constants.Columns.cum_doi_balance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column to store the calculated field values with cumulative balance of days of inventory for
+for every lot on a business unit</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.doi_balance">
+<code class="sig-name descname">doi_balance</code><a class="headerlink" href="#optimization.constants.Columns.doi_balance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column to store calculated values with balance of days of inventory each business unit has
+for every item</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.bu_doi_balance">
+<code class="sig-name descname">bu_doi_balance</code><a class="headerlink" href="#optimization.constants.Columns.bu_doi_balance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column to store calculated values with balance of days of inventory for each item from business units</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.delta_days_of_inventory">
+<code class="sig-name descname">delta_days_of_inventory</code><a class="headerlink" href="#optimization.constants.Columns.delta_days_of_inventory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column from inventory report that</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.days_to_expire">
+<code class="sig-name descname">days_to_expire</code><a class="headerlink" href="#optimization.constants.Columns.days_to_expire" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column to store calculated values for quantity of days left before a given lot at each business unit
+expires</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.items_to_expire">
+<code class="sig-name descname">items_to_expire</code><a class="headerlink" href="#optimization.constants.Columns.items_to_expire" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column to store calculated values of quantity of items to expire based on current consumption rate and
+days left before the item expiration date</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.can_transfer_inventory">
+<code class="sig-name descname">can_transfer_inventory</code><a class="headerlink" href="#optimization.constants.Columns.can_transfer_inventory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column from inventory report that specifies if a given business unit can transfer certain item</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.can_receive_inventory">
+<code class="sig-name descname">can_receive_inventory</code><a class="headerlink" href="#optimization.constants.Columns.can_receive_inventory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column from inventory report that specifies if a given business unit can receive certain item</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.min_shipment_value">
+<code class="sig-name descname">min_shipment_value</code><a class="headerlink" href="#optimization.constants.Columns.min_shipment_value" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column from inventory report that gives us the minimum dollar value that each transfer needs to be</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.price">
+<code class="sig-name descname">price</code><a class="headerlink" href="#optimization.constants.Columns.price" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column from inventory report with the unit price in dollars for each item</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.cum_stock">
+<code class="sig-name descname">cum_stock</code><a class="headerlink" href="#optimization.constants.Columns.cum_stock" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column to store the calculated field values with cumulative quantity of items a given Item
+at each business unit</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.cum_items_to_expire">
+<code class="sig-name descname">cum_items_to_expire</code><a class="headerlink" href="#optimization.constants.Columns.cum_items_to_expire" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column to store the calculated field values with cumulative quantity of items to expire for
+a given Item at each business unit</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.receiver_bu">
+<code class="sig-name descname">receiver_bu</code><a class="headerlink" href="#optimization.constants.Columns.receiver_bu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column to store the id for receiver business units on the transfer recommendation report</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.provider_bu">
+<code class="sig-name descname">provider_bu</code><a class="headerlink" href="#optimization.constants.Columns.provider_bu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column to store the id for provider business units on the transfer recommendation report</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.optimization_transfer">
+<code class="sig-name descname">optimization_transfer</code><a class="headerlink" href="#optimization.constants.Columns.optimization_transfer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column from inventory report that</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.default_shipment_days">
+<code class="sig-name descname">default_shipment_days</code><a class="headerlink" href="#optimization.constants.Columns.default_shipment_days" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column from inventory report with the default shipment days to consider when recommending transfers</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.how_many_bu">
+<code class="sig-name descname">how_many_bu</code><a class="headerlink" href="#optimization.constants.Columns.how_many_bu" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column used to store calculated value for quantity of business units that have a given item</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.delta_doi">
+<code class="sig-name descname">delta_doi</code><a class="headerlink" href="#optimization.constants.Columns.delta_doi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column used to store how far from target days of inventory for each item id,
+the business unit is currently</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.bu_oh_plus_transit">
+<code class="sig-name descname">bu_oh_plus_transit</code><a class="headerlink" href="#optimization.constants.Columns.bu_oh_plus_transit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column from inventory report that</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.bu_oh">
+<code class="sig-name descname">bu_oh</code><a class="headerlink" href="#optimization.constants.Columns.bu_oh" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column from inventory report that</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.bu_item_qty_in_transf">
+<code class="sig-name descname">bu_item_qty_in_transf</code><a class="headerlink" href="#optimization.constants.Columns.bu_item_qty_in_transf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column from inventory report that informs the quantity of items currently in transit</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.bu_description">
+<code class="sig-name descname">bu_description</code><a class="headerlink" href="#optimization.constants.Columns.bu_description" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column from inventory report with business unit description (long name)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.bu_region">
+<code class="sig-name descname">bu_region</code><a class="headerlink" href="#optimization.constants.Columns.bu_region" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column from inventory report with business unit region</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.contact_email">
+<code class="sig-name descname">contact_email</code><a class="headerlink" href="#optimization.constants.Columns.contact_email" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column from inventory report with contact email from each business unit supervisor</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.on_site_email">
+<code class="sig-name descname">on_site_email</code><a class="headerlink" href="#optimization.constants.Columns.on_site_email" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column from inventory report with business unit contact email</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.item_description">
+<code class="sig-name descname">item_description</code><a class="headerlink" href="#optimization.constants.Columns.item_description" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column from inventory report with item description</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.supplier_name">
+<code class="sig-name descname">supplier_name</code><a class="headerlink" href="#optimization.constants.Columns.supplier_name" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column from inventory report with name of the item supplier</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.std_uom">
+<code class="sig-name descname">std_uom</code><a class="headerlink" href="#optimization.constants.Columns.std_uom" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column from inventory report with std_uom</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.chart_of_accounts">
+<code class="sig-name descname">chart_of_accounts</code><a class="headerlink" href="#optimization.constants.Columns.chart_of_accounts" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column from inventory report with chart of accounts information</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.bu_address">
+<code class="sig-name descname">bu_address</code><a class="headerlink" href="#optimization.constants.Columns.bu_address" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column from inventory report with business unit address</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.minimum_days_of_inventory_for_lot">
+<code class="sig-name descname">minimum_days_of_inventory_for_lot</code><a class="headerlink" href="#optimization.constants.Columns.minimum_days_of_inventory_for_lot" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Name of column from inventory report that defines the minimum days of inventory threshold required for each item</dt><dd><p>at each business unit</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.date_lot_added_to_bu_inv">
+<code class="sig-name descname">date_lot_added_to_bu_inv</code><a class="headerlink" href="#optimization.constants.Columns.date_lot_added_to_bu_inv" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column from inventory report with date each lot was added to each business unit</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.bu_item_last_lot_depleted">
+<code class="sig-name descname">bu_item_last_lot_depleted</code><a class="headerlink" href="#optimization.constants.Columns.bu_item_last_lot_depleted" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column from inventory report that stores information about which lot is current lot in use</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.item_stats">
+<code class="sig-name descname">item_stats</code><a class="headerlink" href="#optimization.constants.Columns.item_stats" title="Permalink to this definition">¶</a></dt>
+<dd><p>Name of column from inventory report that stores the item status for each item ID at each business unit</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>If the <strong>names of the columns used by the model change, there is no need to go through all modules and change manually</strong>.
+Just <strong>add their new name to their respective field.</strong></p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If new columns need to be specified to the model, place them in this script as the other columns.
+Place for specifying column names used on Inventory Dataframe.</p>
+</div>
+<dl class="py attribute">
+<dt id="id2">
+<code class="sig-name descname">average_item_daily_use</code><em class="property"> = 'average_item_daily_use'</em><a class="headerlink" href="#id2" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id3">
+<code class="sig-name descname">bu_address</code><em class="property"> = 'bu_address'</em><a class="headerlink" href="#id3" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id4">
+<code class="sig-name descname">bu_description</code><em class="property"> = 'bu_descrip'</em><a class="headerlink" href="#id4" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id5">
+<code class="sig-name descname">bu_doi_balance</code><em class="property"> = 'bu_doi_balance'</em><a class="headerlink" href="#id5" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id6">
+<code class="sig-name descname">bu_item_last_lot_depleted</code><em class="property"> = 'bu_item_last_lot_depleted'</em><a class="headerlink" href="#id6" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id7">
+<code class="sig-name descname">bu_item_qty_in_transf</code><em class="property"> = 'bu_item_qty_in_transfer'</em><a class="headerlink" href="#id7" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id8">
+<code class="sig-name descname">bu_oh</code><em class="property"> = 'bu_oh_days_supply'</em><a class="headerlink" href="#id8" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id9">
+<code class="sig-name descname">bu_oh_plus_transit</code><em class="property"> = 'bu_oh_transit_days_supply'</em><a class="headerlink" href="#id9" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.bu_qty_end_month">
+<code class="sig-name descname">bu_qty_end_month</code><em class="property"> = 'bu_qty_end_month'</em><a class="headerlink" href="#optimization.constants.Columns.bu_qty_end_month" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id10">
+<code class="sig-name descname">bu_qty_on_hand</code><em class="property"> = 'bu_qty_on_hand'</em><a class="headerlink" href="#id10" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id11">
+<code class="sig-name descname">bu_region</code><em class="property"> = 'bu_region'</em><a class="headerlink" href="#id11" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id12">
+<code class="sig-name descname">can_receive_inventory</code><em class="property"> = 'can_receive_inventory'</em><a class="headerlink" href="#id12" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id13">
+<code class="sig-name descname">can_transfer_inventory</code><em class="property"> = 'can_transfer_inventory'</em><a class="headerlink" href="#id13" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id14">
+<code class="sig-name descname">chart_of_accounts</code><em class="property"> = 'chart_of_accounts'</em><a class="headerlink" href="#id14" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.cols_needed">
+<code class="sig-name descname">cols_needed</code><em class="property"> = ['inv_bu', 'item_id', 'lot_id', 'report_date', 'expire_date', 'price', 'average_item_daily_use', 'bu_qty_on_hand', 'lot_qty_on_hand', 'doi_target', 'min_shipment_value', 'can_transfer_inventory', 'can_receive_inventory', 'delta_doi', 'bu_oh_transit_days_supply', 'bu_oh_days_supply', 'item_descrip', 'bu_region', 'approver_contact_email', 'supplier_name', 'onsite_contact_email', 'std_uom', 'chart_of_accounts', 'bu_address', 'bu_descrip', 'bu_item_status', 'bu_item_qty_in_transfer', 'minimum_days_of_inventory_for_lot', 'date_lot_added_to_bu_inv', 'default_shipment_days', 'bu_item_last_lot_depleted']</em><a class="headerlink" href="#optimization.constants.Columns.cols_needed" title="Permalink to this definition">¶</a></dt>
+<dd><p>List of columns needed, either to calculate necessary information used by the optimization model or
+columns that are required to be added to final report</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.consume">
+<code class="sig-name descname">consume</code><em class="property"> = 'consume'</em><a class="headerlink" href="#optimization.constants.Columns.consume" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id15">
+<code class="sig-name descname">contact_email</code><em class="property"> = 'approver_contact_email'</em><a class="headerlink" href="#id15" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id16">
+<code class="sig-name descname">cum_doi</code><em class="property"> = 'cumulative_days_of_inventory'</em><a class="headerlink" href="#id16" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id17">
+<code class="sig-name descname">cum_doi_balance</code><em class="property"> = 'cumulative_doi_balance'</em><a class="headerlink" href="#id17" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id18">
+<code class="sig-name descname">cum_items_to_expire</code><em class="property"> = 'cumulative_items_to_expire'</em><a class="headerlink" href="#id18" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id19">
+<code class="sig-name descname">cum_stock</code><em class="property"> = 'cumulative_item_qty'</em><a class="headerlink" href="#id19" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id20">
+<code class="sig-name descname">date_lot_added_to_bu_inv</code><em class="property"> = 'date_lot_added_to_bu_inv'</em><a class="headerlink" href="#id20" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id21">
+<code class="sig-name descname">days_of_inventory</code><em class="property"> = 'days_of_inventory'</em><a class="headerlink" href="#id21" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id22">
+<code class="sig-name descname">days_to_expire</code><em class="property"> = 'days_to_expire'</em><a class="headerlink" href="#id22" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id23">
+<code class="sig-name descname">default_shipment_days</code><em class="property"> = 'default_shipment_days'</em><a class="headerlink" href="#id23" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id24">
+<code class="sig-name descname">delta_days_of_inventory</code><em class="property"> = 'delta_days_of_inventory'</em><a class="headerlink" href="#id24" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id25">
+<code class="sig-name descname">delta_doi</code><em class="property"> = 'delta_doi'</em><a class="headerlink" href="#id25" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id26">
+<code class="sig-name descname">doi_balance</code><em class="property"> = 'doi_balance'</em><a class="headerlink" href="#id26" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id27">
+<code class="sig-name descname">doi_target</code><em class="property"> = 'doi_target'</em><a class="headerlink" href="#id27" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id28">
+<code class="sig-name descname">expire_date</code><em class="property"> = 'expire_date'</em><a class="headerlink" href="#id28" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.flag_avg_daily_use">
+<code class="sig-name descname">flag_avg_daily_use</code><em class="property"> = 'flag_avg_daily_use'</em><a class="headerlink" href="#optimization.constants.Columns.flag_avg_daily_use" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.flag_lot">
+<code class="sig-name descname">flag_lot</code><em class="property"> = 'flag_non_lot'</em><a class="headerlink" href="#optimization.constants.Columns.flag_lot" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id29">
+<code class="sig-name descname">how_many_bu</code><em class="property"> = 'how_many_bu'</em><a class="headerlink" href="#id29" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id30">
+<code class="sig-name descname">inv_bu</code><em class="property"> = 'inv_bu'</em><a class="headerlink" href="#id30" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id31">
+<code class="sig-name descname">item_description</code><em class="property"> = 'item_descrip'</em><a class="headerlink" href="#id31" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id32">
+<code class="sig-name descname">item_id</code><em class="property"> = 'item_id'</em><a class="headerlink" href="#id32" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id33">
+<code class="sig-name descname">item_stats</code><em class="property"> = 'bu_item_status'</em><a class="headerlink" href="#id33" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id34">
+<code class="sig-name descname">items_to_expire</code><em class="property"> = 'items_to_expire'</em><a class="headerlink" href="#id34" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id35">
+<code class="sig-name descname">lot_id</code><em class="property"> = 'lot_id'</em><a class="headerlink" href="#id35" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id36">
+<code class="sig-name descname">lot_qty_on_hand</code><em class="property"> = 'lot_qty_on_hand'</em><a class="headerlink" href="#id36" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id37">
+<code class="sig-name descname">min_shipment_value</code><em class="property"> = 'min_shipment_value'</em><a class="headerlink" href="#id37" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id38">
+<code class="sig-name descname">minimum_days_of_inventory_for_lot</code><em class="property"> = 'minimum_days_of_inventory_for_lot'</em><a class="headerlink" href="#id38" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id39">
+<code class="sig-name descname">on_site_email</code><em class="property"> = 'onsite_contact_email'</em><a class="headerlink" href="#id39" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id40">
+<code class="sig-name descname">optimization_transfer</code><em class="property"> = 'optimization_transfer'</em><a class="headerlink" href="#id40" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.period">
+<code class="sig-name descname">period</code><em class="property"> = 'period'</em><a class="headerlink" href="#optimization.constants.Columns.period" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id41">
+<code class="sig-name descname">price</code><em class="property"> = 'price'</em><a class="headerlink" href="#id41" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id42">
+<code class="sig-name descname">provider_bu</code><em class="property"> = 'provider_bu'</em><a class="headerlink" href="#id42" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.real_avg_consumption">
+<code class="sig-name descname">real_avg_consumption</code><em class="property"> = 'real_avg_consumption'</em><a class="headerlink" href="#optimization.constants.Columns.real_avg_consumption" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id43">
+<code class="sig-name descname">receiver_bu</code><em class="property"> = 'receiver_bu'</em><a class="headerlink" href="#id43" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id44">
+<code class="sig-name descname">report_date</code><em class="property"> = 'report_date'</em><a class="headerlink" href="#id44" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id45">
+<code class="sig-name descname">std_uom</code><em class="property"> = 'std_uom'</em><a class="headerlink" href="#id45" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="id46">
+<code class="sig-name descname">supplier_name</code><em class="property"> = 'supplier_name'</em><a class="headerlink" href="#id46" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.constants.Columns.temp_avg_daily_use">
+<code class="sig-name descname">temp_avg_daily_use</code><em class="property"> = 'temp_avg_daily_use'</em><a class="headerlink" href="#optimization.constants.Columns.temp_avg_daily_use" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py data">
+<dt id="optimization.constants.DEFAULT_TIME">
+<code class="sig-prename descclassname">optimization.constants.</code><code class="sig-name descname">DEFAULT_TIME</code><em class="property"> = 30</em><a class="headerlink" href="#optimization.constants.DEFAULT_TIME" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default value in seconds that solver can spend on single item id</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="optimization.constants.LOG_MODE">
+<code class="sig-prename descclassname">optimization.constants.</code><code class="sig-name descname">LOG_MODE</code><em class="property"> = True</em><a class="headerlink" href="#optimization.constants.LOG_MODE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save runtime logs</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="optimization.constants.MAX_TIME">
+<code class="sig-prename descclassname">optimization.constants.</code><code class="sig-name descname">MAX_TIME</code><em class="property"> = 500</em><a class="headerlink" href="#optimization.constants.MAX_TIME" title="Permalink to this definition">¶</a></dt>
+<dd><p>Maximum amount of time in seconds that solver can spend on single item id. This value is used only
+when USE_DYNAMIC_TIME is set to True</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="optimization.constants.MIN_SHIPMENT_VALUE">
+<code class="sig-prename descclassname">optimization.constants.</code><code class="sig-name descname">MIN_SHIPMENT_VALUE</code><em class="property"> = 50</em><a class="headerlink" href="#optimization.constants.MIN_SHIPMENT_VALUE" title="Permalink to this definition">¶</a></dt>
+<dd><p>Default value for minimum shipment in dollars if values are not found on the inventory report</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="optimization.constants.SAVE_MODEL">
+<code class="sig-prename descclassname">optimization.constants.</code><code class="sig-name descname">SAVE_MODEL</code><em class="property"> = False</em><a class="headerlink" href="#optimization.constants.SAVE_MODEL" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save optimization model, by default is set to False, since in production environment optimization results are
+passed back to alteryx that handles the results saving process</p>
+</dd></dl>
+
+<dl class="py data">
+<dt id="optimization.constants.USE_DYNAMIC_TIME">
+<code class="sig-prename descclassname">optimization.constants.</code><code class="sig-name descname">USE_DYNAMIC_TIME</code><em class="property"> = False</em><a class="headerlink" href="#optimization.constants.USE_DYNAMIC_TIME" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine maximum amount of time optimization model can spend optimizing a single item
+based on the decile of that item dollar value. If set to False, main.py use the default time as limit to the model.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-optimization.debug">
+<span id="debug"></span><h2>Debug<a class="headerlink" href="#module-optimization.debug" title="Permalink to this headline">¶</a></h2>
+<p>Debug scripts.</p>
+<dl class="py class">
+<dt id="optimization.debug.Debugger">
+<em class="property">class </em><code class="sig-prename descclassname">optimization.debug.</code><code class="sig-name descname">Debugger</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">func</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimization.debug.Debugger" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Wrapper class for defining debugger</p>
+<dl class="py attribute">
+<dt id="optimization.debug.Debugger.enabled">
+<code class="sig-name descname">enabled</code><em class="property"> = False</em><a class="headerlink" href="#optimization.debug.Debugger.enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Debugger will be activated only if parameter is set to True. Set to False by default”</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-optimization.tests">
+<span id="tests"></span><h2>Tests<a class="headerlink" href="#module-optimization.tests" title="Permalink to this headline">¶</a></h2>
+<p>Module used for creating test cases for the optimization model scripts</p>
+</div>
+<div class="section" id="module-optimization">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-optimization" title="Permalink to this headline">¶</a></h2>
+<p>Optimization model scripts for generating transfer recommendations of SKUs between Quest Diagnostics business units.</p>
+<div class="section" id="submodules">
+<h3>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h3>
+<table class="longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#module-optimization.solspace" title="optimization.solspace"><code class="xref py py-obj docutils literal notranslate"><span class="pre">solspace</span></code></a></p></td>
+<td><p>Scripts used for generating the <strong>solution space.</strong></p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#module-optimization.constants" title="optimization.constants"><code class="xref py py-obj docutils literal notranslate"><span class="pre">constants</span></code></a></p></td>
+<td><p>Constants used throughout optimization model scripts.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#module-optimization.debug" title="optimization.debug"><code class="xref py py-obj docutils literal notranslate"><span class="pre">debug</span></code></a></p></td>
+<td><p>Debug scripts.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="../index.html" title="previous page">Quest Diagnostics Optimization Model Technical Documentation</a>
+    <a class='right-next' id="next-link" href="optimization.model.html" title="next page">Model</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2020-2021 Quest Diagnostics Incorporated. All rights reserved..<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

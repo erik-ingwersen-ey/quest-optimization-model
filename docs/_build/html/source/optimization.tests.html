@@ -1,0 +1,253 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tests &#8212; Quest Optimization Model 1.2 documentation</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/thebelab-helper.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="User Guides" href="guides.html" />
+    <link rel="prev" title="Model Configurations" href="optimization.configuration.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    <a class="navbar-brand" href="../index.html">
+    
+      <p class="title">Quest Optimization Model</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="optimization.html">Optimization Model</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="guides.html">User Guides</a>
+        </li>
+        
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+          
+            
+                <li class="">
+                    <a href="optimization.model.html">Model</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="optimization.datatools.html">Datatools</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="optimization.opt_tools.html">Optimization Tools</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="optimization.configuration.html">Model Configurations</a>
+                </li>
+            
+          
+            
+                <li class="active">
+                    <a href="">Tests</a>
+                </li>
+            
+          
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#module-optimization.tests.unittest_test_extra_output" class="nav-link">Extra Outputs Unittests</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#module-optimization.tests" class="nav-link">Module contents</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="tests">
+<h1>Tests<a class="headerlink" href="#tests" title="Permalink to this headline">¶</a></h1>
+<p>Module for creating unit tes cases for optimization model modules source code.
+.. autosummary:: optimization.tests</p>
+<div class="section" id="module-optimization.tests.unittest_test_extra_output">
+<span id="extra-outputs-unittests"></span><h2>Extra Outputs Unittests<a class="headerlink" href="#module-optimization.tests.unittest_test_extra_output" title="Permalink to this headline">¶</a></h2>
+<p>Unit testing extra outputs new developments</p>
+<dl class="py class">
+<dt id="optimization.tests.unittest_test_extra_output.TestExtraOutputs">
+<em class="property">class </em><code class="sig-prename descclassname">optimization.tests.unittest_test_extra_output.</code><code class="sig-name descname">TestExtraOutputs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">methodName</span><span class="o">=</span><span class="default_value">'runTest'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimization.tests.unittest_test_extra_output.TestExtraOutputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<p>Unit test for <code class="docutils literal notranslate"><span class="pre">datatools.extra_outputs.FindInfo</span> <span class="pre">class</span></code>
+Test Cases
+———-
+- <code class="docutils literal notranslate"><span class="pre">test_get_status</span></code>: testing method that checks if a given Lot from the transfer recommendations report already         exists on the receiving business unit. Since <code class="docutils literal notranslate"><span class="pre">get_status</span></code> method is used by <code class="docutils literal notranslate"><span class="pre">lot_usage</span></code>, we’re also          testing it as part of the validation for the new <code class="docutils literal notranslate"><span class="pre">lot_usage</span></code> code.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">test_lot_usage</span></code>: testing logic that determines if Lot from transfer recommendation is         “in use”, “in inventory” or “not found” at receiver business unit.</p></li>
+</ul>
+<dl class="py method">
+<dt id="optimization.tests.unittest_test_extra_output.TestExtraOutputs.setUp">
+<code class="sig-name descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#optimization.tests.unittest_test_extra_output.TestExtraOutputs.setUp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Hook method for setting up the test fixture before exercising it.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="optimization.tests.unittest_test_extra_output.TestExtraOutputs.test_get_status">
+<code class="sig-name descname">test_get_status</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">level</span><span class="o">=</span><span class="default_value">'lot'</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimization.tests.unittest_test_extra_output.TestExtraOutputs.test_get_status" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="optimization.tests.unittest_test_extra_output.TestExtraOutputs.test_lot_usage">
+<code class="sig-name descname">test_lot_usage</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#optimization.tests.unittest_test_extra_output.TestExtraOutputs.test_lot_usage" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-optimization.tests">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-optimization.tests" title="Permalink to this headline">¶</a></h2>
+<p>Module used for creating test cases for the optimization model scripts</p>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="optimization.configuration.html" title="previous page">Model Configurations</a>
+    <a class='right-next' id="next-link" href="guides.html" title="next page">User Guides</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2020-2021 Quest Diagnostics Incorporated. All rights reserved..<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

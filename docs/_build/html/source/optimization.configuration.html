@@ -1,0 +1,356 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Model Configurations &#8212; Quest Optimization Model 1.2 documentation</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/thebelab-helper.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="User Guides" href="guides.html" />
+    <link rel="prev" title="Optimization Tools" href="optimization.opt_tools.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    <a class="navbar-brand" href="../index.html">
+    
+      <p class="title">Quest Optimization Model</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="optimization.html">Optimization Model</a>
+        </li>
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="guides.html">User Guides</a>
+        </li>
+        
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+          
+            
+                <li class="">
+                    <a href="optimization.model.html">Model</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="optimization.datatools.html">Datatools</a>
+                </li>
+            
+          
+            
+                <li class="">
+                    <a href="optimization.opt_tools.html">Optimization Tools</a>
+                </li>
+            
+          
+            
+                <li class="active">
+                    <a href="">Model Configurations</a>
+                </li>
+            
+          
+        
+        
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#basic-configurations" class="nav-link">Basic Configurations</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#columns-used-by-the-model" class="nav-link">Columns Used by the Model</a>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="model-configurations">
+<h1>Model Configurations<a class="headerlink" href="#model-configurations" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="basic-configurations">
+<h2>Basic Configurations<a class="headerlink" href="#basic-configurations" title="Permalink to this headline">¶</a></h2>
+<p>The optimization model configurations are stored at <a class="reference internal" href="optimization.html#module-optimization.constants" title="optimization.constants"><code class="xref py py-meth docutils literal notranslate"><span class="pre">optimization.constants</span></code></a>.
+Bellow, you can find all available configuration options and their respective description.</p>
+<dl class="glossary simple">
+<dt id="term-LOG_MODE">LOG_MODE</dt><dd><p>Can be set to <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>. When enabled the model will store all <strong>logs</strong>  into <code class="docutils literal notranslate"><span class="pre">./optimization/logs/optimizer.log</span></code>.
+This configuration is set to <code class="docutils literal notranslate"><span class="pre">True</span></code> by default.</p>
+</dd>
+<dt id="term-SAVE_MODEL">SAVE_MODEL</dt><dd><p>Can be set to <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>. If enabled will save the model results into the folder <code class="docutils literal notranslate"><span class="pre">./optimization/Results/</span></code> as a <code class="docutils literal notranslate"><span class="pre">.csv</span></code> file. Since the model is set to run on <strong>Alteryx</strong>, this configuration is set to <code class="docutils literal notranslate"><span class="pre">False</span></code> by default.</p>
+</dd>
+<dt id="term-USE_DYNAMIC_TIME">USE_DYNAMIC_TIME</dt><dd><p>It can be set to <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>. If enabled will determine the maximum amount of time the model can spend trying
+to optimize a single <code class="docutils literal notranslate"><span class="pre">Item</span> <span class="pre">ID</span></code> dynamically, depending on the <strong>total dollar value corresponding to that item</strong>.
+This configuration is set to <code class="docutils literal notranslate"><span class="pre">False</span></code> by default.</p>
+</dd>
+<dt id="term-MAX_TIME">MAX_TIME</dt><dd><p>It can be set to any <strong>positive</strong> <code class="docutils literal notranslate"><span class="pre">integer</span></code>. When <code class="docutils literal notranslate"><span class="pre">USE_DYNAMIC_TIME</span></code> is set to <code class="docutils literal notranslate"><span class="pre">True</span></code>, this parameter is then used as upper boundary
+to determine the maximum amount of time the model will spend trying to optimize a single item. <strong>By default is set to 500 and the value represents time in seconds.</strong></p>
+</dd>
+<dt id="term-DEFAULT_TIME">DEFAULT_TIME</dt><dd><p>It can be set to any <strong>positive</strong> <code class="docutils literal notranslate"><span class="pre">integer</span></code>. Default maximum amount of seconda the model can spend trying to find the optimal solution for a single <code class="docutils literal notranslate"><span class="pre">Item</span> <span class="pre">ID</span></code>.</p>
+</dd>
+<dt id="term-LOT_DF">LOT_DF</dt><dd><p>Variable used to store inventory reports comming from <strong>Alteryx</strong>.
+This variable is then used at <a class="reference internal" href="optimization.datatools.html#optimization.datatools.pipelines.data_pipeline" title="optimization.datatools.pipelines.data_pipeline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">optimization.datatools.pipelines.data_pipeline</span></code></a>
+in conjunction with <code class="docutils literal notranslate"><span class="pre">NONLOT_DF</span></code> to get the final input that will be used by the model.</p>
+</dd>
+<dt id="term-NONLOT_DF">NONLOT_DF</dt><dd><p>Same as <code class="docutils literal notranslate"><span class="pre">LOT_DF</span></code>, but for <strong>Non Lot</strong> items.</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="columns-used-by-the-model">
+<h2>Columns Used by the Model<a class="headerlink" href="#columns-used-by-the-model" title="Permalink to this headline">¶</a></h2>
+<p>The columns below are the ones being used as input by the model. Some of these columns are used on the final output of the model,
+and others are necessary to calculate attributes used by the model. These columns are referenced by a <code class="docutils literal notranslate"><span class="pre">list</span></code> that is stored inside the method <a class="reference internal" href="optimization.datatools.html#optimization.datatools.pipelines.data_pipeline" title="optimization.datatools.pipelines.data_pipeline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">optimization.datatools.pipelines.data_pipeline</span></code></a>.
+If the user wants to pass new columns to the model, add their respective names at the list inside <a class="reference internal" href="optimization.datatools.html#optimization.datatools.pipelines.data_pipeline" title="optimization.datatools.pipelines.data_pipeline"><code class="xref py py-meth docutils literal notranslate"><span class="pre">optimization.datatools.pipelines.data_pipeline</span></code></a>.</p>
+<table class="colwidths-given table">
+<colgroup>
+<col style="width: 31%" />
+<col style="width: 19%" />
+<col style="width: 50%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Column Name</p></th>
+<th class="head"><p>Used By</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Inv BU</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Model</span></code></p></td>
+<td><p>Unique identification number assigned to every business unit from Quest Diagnostics.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Item ID</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Model</span></code></p></td>
+<td><p>Unique identification number assigned to every SKU from Quest Diagnostics.</p></td>
+</tr>
+<tr class="row-even"><td><p>Lot ID</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Model</span></code></p></td>
+<td><p>Identification number assigned to every Lot SKU from Quest Diagnostics. This column is only used for Lot items. <strong>Lot items are items that have expiration date</strong>.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Report Date (Query Date)</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Model</span></code></p></td>
+<td><p>Date that the inventory report was generated. This column is used together with the column <code class="docutils literal notranslate"><span class="pre">Expire</span> <span class="pre">Date</span></code> to calculate the <code class="docutils literal notranslate"><span class="pre">Days</span> <span class="pre">to</span> <span class="pre">Expire</span></code> column. This last column is then used to determine items that might get expired before their consumption.</p></td>
+</tr>
+<tr class="row-even"><td><p>Expire Date</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Model</span></code></p></td>
+<td><p>Expiration date of Lot Items.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Average Item Daily Use</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Model</span></code></p></td>
+<td><p>Average daily consumption rate of a given item at a given business unit. This column is used in order to calculate <code class="docutils literal notranslate"><span class="pre">Inventory</span> <span class="pre">Balance</span></code> and <code class="docutils literal notranslate"><span class="pre">Items</span> <span class="pre">to</span> <span class="pre">Expire</span></code> columns used that are the main columns used to define the optimization problem <strong>objective function</strong>.</p></td>
+</tr>
+<tr class="row-even"><td><p>BU Qty on Hand</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Model</span></code></p></td>
+<td><p>This column shows the total number of items from a particular <code class="docutils literal notranslate"><span class="pre">Item</span> <span class="pre">ID</span></code> all a single BU have. When combined with the column <code class="docutils literal notranslate"><span class="pre">DOI</span> <span class="pre">Target</span></code> and <code class="docutils literal notranslate"><span class="pre">Average</span> <span class="pre">Item</span> <span class="pre">Daily</span> <span class="pre">Use</span></code> we obtain the <strong>inventory balance</strong> that the given BU has for a given item.</p></td>
+</tr>
+<tr class="row-odd"><td><p>Lot Qty on Hand</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Model</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>DOI Target</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Model</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Can Receive Inventory</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Model</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Can Transfer Inventory</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Model</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Min Shipment  Value</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Model</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Price</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Model</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Default Shipment Days</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Model</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Item Stats</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Model</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BUv Item Qty in Transf</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Model</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Item Description</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Output</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BU Region</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Output</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Contact Email</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Output</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>Supplier Name</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Output</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>On Site Email</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Output</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>STD UOM</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Output</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>Chart of Accounts</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Output</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>BU Address</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Output</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>BU Descrip</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Output</span></code></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="optimization.opt_tools.html" title="previous page">Optimization Tools</a>
+    <a class='right-next' id="next-link" href="guides.html" title="next page">User Guides</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2020-2021 Quest Diagnostics Incorporated. All rights reserved..<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

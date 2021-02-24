@@ -1,0 +1,10 @@
+Input Data
+================================
+
+Module contents
+---------------
+
+.. automodule:: optimization.input_data
+   :members:
+   :undoc-members:
+   :show-inheritance:

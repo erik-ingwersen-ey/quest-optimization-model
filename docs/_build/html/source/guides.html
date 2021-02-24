@@ -1,0 +1,329 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>User Guides &#8212; Quest Optimization Model 1.2 documentation</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.f658d18f9b420779cfdf24aa0a7e2d77.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/jupyter-sphinx.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/thebelab.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.d3f166471bb80abb5163.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/thebelab-helper.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="https://unpkg.com/@jupyter-widgets/html-manager@^0.20.0/dist/embed-amd.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Model Configurations" href="optimization.configuration.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main">
+<div class="container-xl">
+
+    <a class="navbar-brand" href="../index.html">
+    
+      <p class="title">Quest Optimization Model</p>
+    
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbar-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div id="navbar-menu" class="col-lg-9 collapse navbar-collapse">
+      <ul id="navbar-main-elements" class="navbar-nav mr-auto">
+        
+        
+        <li class="nav-item ">
+            <a class="nav-link" href="optimization.html">Optimization Model</a>
+        </li>
+        
+        <li class="nav-item active">
+            <a class="nav-link" href="">User Guides</a>
+        </li>
+        
+        
+      </ul>
+
+
+      
+
+      <ul class="navbar-nav">
+        
+        
+      </ul>
+    </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+          <div class="col-12 col-md-3 bd-sidebar"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+
+    <div class="bd-toc-item active">
+    
+  
+    <ul class="nav bd-sidenav">
+        
+        
+        
+        
+          
+        
+        
+      </ul>
+  
+  </nav>
+          </div>
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+              
+<div class="tocsection onthispage pt-5 pb-3">
+    <i class="fas fa-list"></i> On this page
+</div>
+
+<nav id="bd-toc-nav">
+    <ul class="nav section-nav flex-column">
+    
+        <li class="nav-item toc-entry toc-h2">
+            <a href="#model-installation" class="nav-link">Model Installation</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#installing-using-conda-environment" class="nav-link">Installing Using Conda Environment</a><ul class="nav section-nav flex-column">
+                
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#activate-conda-environment" class="nav-link">Activate Conda Environment</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#go-to-optimization-source-code-folder" class="nav-link">Go to Optimization Source Code Folder</a>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h4">
+            <a href="#pip-install-package" class="nav-link">Pip Install Package</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+        <li class="nav-item toc-entry toc-h3">
+            <a href="#running-locally-without-installing-the-model" class="nav-link">Running Locally Without Installing the Model</a>
+        </li>
+    
+            </ul>
+        </li>
+    
+    </ul>
+</nav>
+
+
+              
+          </div>
+          
+
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <div class="section" id="user-guides">
+<h1>User Guides<a class="headerlink" href="#user-guides" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="model-installation">
+<h2>Model Installation<a class="headerlink" href="#model-installation" title="Permalink to this headline">¶</a></h2>
+<p>To install the <a class="reference internal" href="optimization.html#module-optimization" title="optimization"><code class="xref py py-meth docutils literal notranslate"><span class="pre">optimization</span></code></a> package locally, first clone the source code available at the project <strong>gitlab</strong> page.
+After cloning the repository, you can choose either to run it <strong>with or without</strong> adding the package to your python environment <code class="docutils literal notranslate"><span class="pre">site-packages</span></code> folder.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>If you choose <strong>not</strong> to install the package at your python environment, you will have to reference the folder where you stored the source
+code every time you try importing the <a class="reference internal" href="optimization.html#module-optimization" title="optimization"><code class="xref py py-meth docutils literal notranslate"><span class="pre">optimization</span></code></a> modules and submodules.</p>
+</div>
+<div class="section" id="installing-using-conda-environment">
+<h3>Installing Using Conda Environment<a class="headerlink" href="#installing-using-conda-environment" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="activate-conda-environment">
+<h4>Activate Conda Environment<a class="headerlink" href="#activate-conda-environment" title="Permalink to this headline">¶</a></h4>
+<p>To install install the optimization package to your <code class="docutils literal notranslate"><span class="pre">conda</span></code> environment, first activate the conda environment by running the Anaconda app or by adding
+the following command at your <code class="docutils literal notranslate"><span class="pre">command</span> <span class="pre">prompt</span></code>:</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<div class="code-block-caption"><span class="caption-text">cmd.exe</span><a class="headerlink" href="#id1" title="Permalink to this code">¶</a></div>
+<div class="highlight-console notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="go">conda activate base</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Change the name <code class="docutils literal notranslate"><span class="pre">base</span></code> to the respective name of your conda environment. If you don’t know the names of your conda environments you can find
+them by running the following command:</p>
+<blockquote>
+<div><div class="literal-block-wrapper docutils container" id="id2">
+<div class="code-block-caption"><span class="caption-text">cmd.exe</span><a class="headerlink" href="#id2" title="Permalink to this code">¶</a></div>
+<div class="highlight-console notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="go">~  conda info --envs                               ok | base py | at 00:09:21 </span>
+<span class="gp">#</span> conda environments:
+<span class="gp">#</span>
+<span class="go">EY-Quest-Diagnostics        /Users/EY/.conda/envs/EY-Quest-Diagnostics</span>
+<span class="go">                            /Users/EY/opt/anaconda3</span>
+<span class="go">base                  *     /opt/anaconda3</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="go-to-optimization-source-code-folder">
+<h4>Go to Optimization Source Code Folder<a class="headerlink" href="#go-to-optimization-source-code-folder" title="Permalink to this headline">¶</a></h4>
+<p>After activating your conda environment, go to the folder where you placed the source code:</p>
+<div class="literal-block-wrapper docutils container" id="id3">
+<div class="code-block-caption"><span class="caption-text">cmd.exe</span><a class="headerlink" href="#id3" title="Permalink to this code">¶</a></div>
+<div class="highlight-console notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="go">~  cd /Users/EY/Desktop/EY-Quest-Diagnostics</span>
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>There you should find a file named <code class="docutils literal notranslate"><span class="pre">setup.py</span></code>.</p>
+<div class="literal-block-wrapper docutils container" id="id4">
+<div class="code-block-caption"><span class="caption-text">cmd.exe</span><a class="headerlink" href="#id4" title="Permalink to this code">¶</a></div>
+<div class="highlight-console notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="go">~/De/EY-Quest-Diagnostics ls</span>
+<span class="go">build                 docs                  optimization.egg-info</span>
+<span class="hll"><span class="go">dist                  optimization          setup.py</span>
+</span></pre></div>
+</td></tr></table></div>
+</div>
+<p>The file <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> is used to store all necessary package configurations that are needed to run the optimization model.</p>
+</div>
+<div class="section" id="pip-install-package">
+<h4>Pip Install Package<a class="headerlink" href="#pip-install-package" title="Permalink to this headline">¶</a></h4>
+<p>After completing the previous steps <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span></code> the package by running the following command:</p>
+<div class="literal-block-wrapper docutils container" id="id5">
+<div class="code-block-caption"><span class="caption-text">cmd.exe</span><a class="headerlink" href="#id5" title="Permalink to this code">¶</a></div>
+<div class="highlight-sh notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span>~/De/EY-Quest-Diagnostics pip install -e .
+
+Obtaining file:///Users/EY/Desktop/EY-Quest-Diagnostics
+Installing collected packages: optimization
+    Attempting uninstall: optimization
+        Found existing installation: optimization <span class="m">0</span>.1.3
+        Uninstalling optimization-0.1.3:
+        Successfully uninstalled optimization-0.1.3
+    Running setup.py develop <span class="k">for</span> optimization
+Successfully installed optimization
+</pre></div>
+</td></tr></table></div>
+</div>
+<p>After installation is complete you can test the model by running the <code class="docutils literal notranslate"><span class="pre">optimization/test_py</span></code> script:</p>
+<div class="highlight-python notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span>~/De/EY-Quest-Diagnostics/optimization  python test_model.py
+&gt;&gt;&gt; 100%|███████████████████████████████████████| 7297/7297 [10:59&lt;00:00, 21.90it/s]
+</pre></div>
+</td></tr></table></div>
+</div>
+</div>
+<div class="section" id="running-locally-without-installing-the-model">
+<h3>Running Locally Without Installing the Model<a class="headerlink" href="#running-locally-without-installing-the-model" title="Permalink to this headline">¶</a></h3>
+<p>If you don’t want to add the package to your Python environment <code class="docutils literal notranslate"><span class="pre">site-packages</span></code> folder, just place any testing scripts you created inside the <code class="docutils literal notranslate"><span class="pre">/optimization</span></code> folder.
+This process is necessary since when importing modules, Python first searches the local folder where your scripts are stored before trying to find them in the <code class="docutils literal notranslate"><span class="pre">site-packages</span></code> folder.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The <a class="reference internal" href="optimization.model.html#module-optimization.model" title="optimization.model"><code class="xref py py-meth docutils literal notranslate"><span class="pre">optimization.model</span></code></a> package requires other modules in order to run. If these packages are not found at your Python environment,
+the first time you import any of the optimization model modules, Python will inform that they are missing and ask if you want to download and install them.</p>
+<blockquote>
+<div><div class="jupyter_cell jupyter_container docutils container">
+<div class="cell_input code_cell docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">optimization</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+</div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">&quot;Pulp package not found. To install it, type [&#39;Y&#39;]/N:  Y&quot;</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+</div>
+</div>
+
+
+              </div>
+              
+              
+              <div class='prev-next-bottom'>
+                
+    <a class='left-prev' id="prev-link" href="optimization.configuration.html" title="previous page">Model Configurations</a>
+
+              </div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.d3f166471bb80abb5163.js"></script>
+
+
+    <footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    <p>
+          &copy; Copyright 2020-2021 Quest Diagnostics Incorporated. All rights reserved..<br/>
+        Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.2.1.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

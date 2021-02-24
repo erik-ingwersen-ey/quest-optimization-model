@@ -1,0 +1,550 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Surplus &mdash; Quest Optimization Model 1.2 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> Quest Optimization Model
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../source/modules.html">Optimization Model</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Quest Optimization Model</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Surplus</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/source copy/optimization.surplus.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="surplus">
+<h1>Surplus<a class="headerlink" href="#surplus" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-optimization.surplus.main">
+<span id="main"></span><h2>Main<a class="headerlink" href="#module-optimization.surplus.main" title="Permalink to this headline">¶</a></h2>
+<p>Main  module for running optimization model.</p>
+<div class="section" id="developers">
+<h3>Developers<a class="headerlink" href="#developers" title="Permalink to this headline">¶</a></h3>
+<p>Erik Ingwersen</p>
+</div>
+<div class="section" id="description">
+<h3>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h3>
+<p>Optimization Model Main Module.</p>
+<p>This module contains all methods that are necessary to run the optimization model.</p>
+<dl class="py class">
+<dt id="optimization.surplus.main.ModelOptimization">
+<em class="property">class </em><code class="sig-prename descclassname">optimization.surplus.main.</code><code class="sig-name descname">ModelOptimization</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">df_inventory</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em>, <em class="sig-param"><span class="n">optimize_what</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">sku_qty</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimization.surplus.main.ModelOptimization" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt id="optimization.surplus.main.ModelOptimization._get_sku">
+<code class="sig-name descname">_get_sku</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#optimization.surplus.main.ModelOptimization._get_sku" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get SKU List from Inventory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>df_inventory</strong> (<em>pandas.core.frame.DataFrame</em>) – Inventory table.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>List with unique SKUs.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="optimization.surplus.main.ModelOptimization.optimize">
+<code class="sig-name descname">optimize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">sku</span><span class="p">:</span> <span class="n">int</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimization.surplus.main.ModelOptimization.optimize" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run optimization for specific BU.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sku</strong> (<em>int</em>) – Item ID.</p></li>
+<li><p><strong>df_inventory</strong> (<em>pandas.core.frame.DataFrame</em>) – Inventory table.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>opt_df</strong> – Pandas dataframe with optimization results.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="optimization.surplus.main.ModelOptimization.run_all">
+<code class="sig-name descname">run_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#optimization.surplus.main.ModelOptimization.run_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run optimization model for entire inventory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>df_inventory</strong> (<em>pandas.core.frame.DataFrame</em>) – Inventory table.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>optimization_list</strong> – List of all optimization results.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.surplus.main.concat">
+<code class="sig-prename descclassname">optimization.surplus.main.</code><code class="sig-name descname">concat</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">results_list</span><span class="p">:</span> <span class="n">list</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimization.surplus.main.concat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Concatenates list of results.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>results_list</strong> (<em>(</em><em>list</em><em>)</em>) – List with optimization results.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Optimization results.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pandas.core.dataframe</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="optimization.surplus.main.main">
+<code class="sig-prename descclassname">optimization.surplus.main.</code><code class="sig-name descname">main</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lot_df</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em>, <em class="sig-param"><span class="n">nonlot_df</span><span class="p">:</span> <span class="n">pandas.core.frame.DataFrame</span></em>, <em class="sig-param"><span class="n">step</span><span class="p">:</span> <span class="n">int</span></em>, <em class="sig-param"><span class="n">optimize_what</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">save_res</span><span class="p">:</span> <span class="n">bool</span> <span class="o">=</span> <span class="default_value">True</span></em>, <em class="sig-param"><span class="n">sku_qty</span><span class="p">:</span> <span class="n">int</span> <span class="o">=</span> <span class="default_value">0</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimization.surplus.main.main" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+<div class="section" id="module-optimization.surplus.optimizer">
+<span id="optimizer"></span><h2>Optimizer<a class="headerlink" href="#module-optimization.surplus.optimizer" title="Permalink to this headline">¶</a></h2>
+<p>Created on Wed Nov  4 17:54:03 2020</p>
+<p>&#64;author: Erik Ingwersen</p>
+<dl class="py class">
+<dt id="optimization.surplus.optimizer.ObjectiveFunction">
+<em class="property">class </em><code class="sig-prename descclassname">optimization.surplus.optimizer.</code><code class="sig-name descname">ObjectiveFunction</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">optimization_model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimization.surplus.optimizer.ObjectiveFunction" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Define objective function.</p>
+<dl class="py method">
+<dt id="optimization.surplus.optimizer.ObjectiveFunction.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">optimization_model</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimization.surplus.optimizer.ObjectiveFunction.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Instance variables of class <code class="docutils literal notranslate"><span class="pre">ObjectiveFunction</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>(</strong><strong>[</strong><strong>class</strong><strong>]</strong><strong>)</strong> (<em>optimization_model</em>) – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="optimization.surplus.optimizer.ObjectiveFunction._combined_objective">
+<code class="sig-name descname">_combined_objective</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#optimization.surplus.optimizer.ObjectiveFunction._combined_objective" title="Permalink to this definition">¶</a></dt>
+<dd><p>Combine both objectives (minimize items to expire and surplus).</p>
+<p>If Provider Lot has items to expire and, its BU surplus, we determine what is more
+representative: surplus or items to expire and try to minimize that. The other possibility
+would be that the BU has shortage but items to expire and so we consider minimizing items
+to expire in our objective function.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="optimization.surplus.optimizer.ObjectiveFunction._experimental_objective">
+<code class="sig-name descname">_experimental_objective</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#optimization.surplus.optimizer.ObjectiveFunction._experimental_objective" title="Permalink to this definition">¶</a></dt>
+<dd><p>Experimental objetive function.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="optimization.surplus.optimizer.ObjectiveFunction._expire_objective">
+<code class="sig-name descname">_expire_objective</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#optimization.surplus.optimizer.ObjectiveFunction._expire_objective" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define items to expire minimization objective.</p>
+<div class="math notranslate nohighlight">
+\[\]</div>
+<p>min,(,sum_{j=1}^{n2},ITE(,j,),-,(,sum_{i=1}^{n1},,  (,x_i,))</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="optimization.surplus.optimizer.ObjectiveFunction._surplus_objective">
+<code class="sig-name descname">_surplus_objective</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#optimization.surplus.optimizer.ObjectiveFunction._surplus_objective" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define surplus minimization objective.</p>
+<div class="math notranslate nohighlight">
+\[\]</div>
+<p>max,(,sum_{j=1}^{n2}sum_{i=1}^{n1},,  (,x_i,))</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="optimization.surplus.optimizer.ObjectiveFunction._validate">
+<em class="property">static </em><code class="sig-name descname">_validate</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">opt_problem</span><span class="p">:</span> <span class="n">str</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimization.surplus.optimizer.ObjectiveFunction._validate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Assert opt_problem is one of possible choices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>(</strong><strong>str</strong><strong>)</strong> (<em>opt_problem</em>) – </p></li>
+<li><p><strong>of objective we want to optimize.</strong> (<em>Type</em>) – </p></li>
+<li><p><strong>expire</strong> (<em>*</em>) – </p></li>
+<li><p><strong>surplus</strong> (<em>*</em>) – </p></li>
+<li><p><strong>both</strong> (<em>*</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>AttributeError</strong> – We don’t have an objective function for the type of:</p></li>
+<li><p><strong>problem that was specified</strong><strong> or </strong><strong>someone mistyped its name.</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="optimization.surplus.optimizer.ObjectiveFunction.set_objective">
+<code class="sig-name descname">set_objective</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#optimization.surplus.optimizer.ObjectiveFunction.set_objective" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define what objective function to call.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="optimization.surplus.optimizer.OptimizationModel">
+<em class="property">class </em><code class="sig-prename descclassname">optimization.surplus.optimizer.</code><code class="sig-name descname">OptimizationModel</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">smatrix</span></em>, <em class="sig-param"><span class="n">item_id</span></em>, <em class="sig-param"><span class="n">opt_problem</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimization.surplus.optimizer.OptimizationModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt id="optimization.surplus.optimizer.OptimizationModel.EXTRA_COLUMNS">
+<code class="sig-name descname">EXTRA_COLUMNS</code><em class="property"> = 26</em><a class="headerlink" href="#optimization.surplus.optimizer.OptimizationModel.EXTRA_COLUMNS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.surplus.optimizer.OptimizationModel.EXTRA_ROWS">
+<code class="sig-name descname">EXTRA_ROWS</code><em class="property"> = 21</em><a class="headerlink" href="#optimization.surplus.optimizer.OptimizationModel.EXTRA_ROWS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.surplus.optimizer.OptimizationModel.PROVIDING_COLUMNS">
+<code class="sig-name descname">PROVIDING_COLUMNS</code><em class="property"> = {'avg_cons_prov': 4, 'bu_doi_balance': 10, 'bu_provide': 0, 'days_expire': 6, 'inv_provide': 8, 'lot_id': 9, 'max_expire': 5, 'max_provide': 1, 'min_ship_prov': 2, 'price_prov': 3, 'provide_bu_address': 20, 'provide_bu_descrip': 21, 'provide_bu_item_qty_in_transf': 25, 'provide_bu_oh_plus_transit': 12, 'provide_bu_qty_on_hand': 24, 'provide_bu_region': 15, 'provide_chart_of_accounts': 19, 'provide_contact_email': 16, 'provide_days_of_inventory': 13, 'provide_delta_doi': 11, 'provide_expire_date': 23, 'provide_item_descrip': 14, 'provide_on_site_email': 22, 'provide_std_uom': 18, 'provide_supplier_name': 17, 'target_provide': 7}</em><a class="headerlink" href="#optimization.surplus.optimizer.OptimizationModel.PROVIDING_COLUMNS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="optimization.surplus.optimizer.OptimizationModel.RECEIVING_COLUMNS">
+<code class="sig-name descname">RECEIVING_COLUMNS</code><em class="property"> = {'avg_cons': 4, 'bu_receive': 0, 'inv_receive': 6, 'max_receive': 1, 'min_ship': 2, 'price': 3, 'receive_bu_address': 16, 'receive_bu_descrip': 17, 'receive_bu_item_qty_in_transf': 20, 'receive_bu_oh_plus_transit': 8, 'receive_bu_region': 11, 'receive_contact_email': 12, 'receive_days_of_inventory': 9, 'receive_delta_doi': 7, 'receive_items_to_expire': 19, 'receive_on_site_email': 18, 'target_receive': 5}</em><a class="headerlink" href="#optimization.surplus.optimizer.OptimizationModel.RECEIVING_COLUMNS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="optimization.surplus.optimizer.OptimizationModel.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">smatrix</span></em>, <em class="sig-param"><span class="n">item_id</span></em>, <em class="sig-param"><span class="n">opt_problem</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimization.surplus.optimizer.OptimizationModel.__init__" title="Permalink to this definition">¶</a></dt>
+<dd><p>Arguments used at the optimization model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>smatrix</strong> (<em>numpy.matrix</em>) – Matrix of size (n x n) with data containing the amounts
+of items from a given SKU that can be sent and received from one BU to
+another.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p></p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="optimization.surplus.optimizer.OptimizationModel._column_constraints">
+<code class="sig-name descname">_column_constraints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#optimization.surplus.optimizer.OptimizationModel._column_constraints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define constraints that are passed to every column
+of our solution space matrix.</p>
+<p>In general column-wise constraints are related to receiving BU’s.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="optimization.surplus.optimizer.OptimizationModel._consume_before_expire_constraint">
+<code class="sig-name descname">_consume_before_expire_constraint</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">col_idx</span></em>, <em class="sig-param"><span class="n">tot</span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimization.surplus.optimizer.OptimizationModel._consume_before_expire_constraint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Constraint to limit item transfer to BUs that can consume them before they expire.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>(</strong><strong>int</strong><strong>)</strong> (<em>tot</em>) – </p></li>
+<li><p><strong>(</strong><strong>int</strong><strong>)</strong> – </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="optimization.surplus.optimizer.OptimizationModel._create_decision_variables">
+<code class="sig-name descname">_create_decision_variables</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#optimization.surplus.optimizer.OptimizationModel._create_decision_variables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define optimizable variables (it is a matrix of size n x n).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>Matrix with variables to optimize.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="optimization.surplus.optimizer.OptimizationModel._create_main_constraints">
+<code class="sig-name descname">_create_main_constraints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#optimization.surplus.optimizer.OptimizationModel._create_main_constraints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add the constraints to our model.</p>
+<p>Function calls methods <code class="docutils literal notranslate"><span class="pre">_row_constraints(self)</span></code> and <code class="docutils literal notranslate"><span class="pre">_column_constraints(self)</span></code>
+that define constraints row and column-wise. Row-wise constraints usually
+limits transfer recommendations based on Receiving BU limitations and column-wise
+constraints do the same for receiving BU’s/Lot.</p>
+<p>NOTE : If you want to add new constraints to the model, add them here.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="optimization.surplus.optimizer.OptimizationModel._row_constraints">
+<code class="sig-name descname">_row_constraints</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#optimization.surplus.optimizer.OptimizationModel._row_constraints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Define constraints that are passed to every row
+of our solution space matrix.</p>
+<p>In general row-wise constraints are related to providing BU’s.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="optimization.surplus.optimizer.OptimizationModel._set_objective_function">
+<code class="sig-name descname">_set_objective_function</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#optimization.surplus.optimizer.OptimizationModel._set_objective_function" title="Permalink to this definition">¶</a></dt>
+<dd><p>Model the objective function declaration.</p>
+<p>Calls the Class ObjectiveFunction that determines
+our objective function based on what type of problem
+we want to solve. Problem types can be:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">surplus</span></code>: when we want to minimize surplus (or shortage)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">expire</span></code>: when we’re looking at items to expire.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">both</span></code>: combination of items to expire and surplus</p></li>
+</ul>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="optimization.surplus.optimizer.OptimizationModel._specify_extra_constants">
+<code class="sig-name descname">_specify_extra_constants</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#optimization.surplus.optimizer.OptimizationModel._specify_extra_constants" title="Permalink to this definition">¶</a></dt>
+<dd><p>Extra constants used to define model constraints and objective function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p></p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>None.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt id="optimization.surplus.optimizer.OptimizationModel.solve">
+<code class="sig-name descname">solve</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; pandas.core.frame.DataFrame<a class="headerlink" href="#optimization.surplus.optimizer.OptimizationModel.solve" title="Permalink to this definition">¶</a></dt>
+<dd><p>Solve optimization problem.</p>
+<p>Main method of our Model class. It calls all the other methods
+of the class, creates the model, defines its contraints, adds the
+objective function and optimizes it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>opt_df</strong> – Dataframe with the results of the optimization model.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>pandas.core.frame.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2021, Erik Ingwersen
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

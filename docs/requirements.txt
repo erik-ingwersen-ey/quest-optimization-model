@@ -1,0 +1,9 @@
+sphinx==5.0
+pygments==2.7
+snowballstemmer==2.2.0
+packaging==23.0
+sphinx-inline-tabs
+sphinx-click
+pydata-sphinx-theme
+numpydoc==1.2.0
+myst-parser

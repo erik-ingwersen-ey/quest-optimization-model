@@ -1,0 +1,493 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quest Diagnostics Optimization Model Technical Documentation &#8212; Quest Optimization Model 1.2 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Optimization Model" href="source/optimization.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  <div class="navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="#">
+  
+  
+  
+  
+  
+    <p class="title logo__title">Quest Optimization Model 1.2 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="source/optimization.html">
+                        Optimization Model
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="source/guides.html">
+                        User Guides
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+    </div>
+  
+
+  
+    <label class="sidebar-toggle secondary-toggle" for="__secondary">
+      <span class="fa-solid fa-outdent"></span>
+    </label>
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="source/optimization.html">
+                        Optimization Model
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="source/guides.html">
+                        User Guides
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article"></div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <a class="intro-logo reference internal image-reference" href="_images/quest_logo.png"><img alt="_images/quest_logo.png" class="intro-logo align-center" src="_images/quest_logo.png" style="width: 568.25px; height: 146.25px;" /></a>
+<div class="section" id="quest-diagnostics-optimization-model-technical-documentation">
+<h1>Quest Diagnostics Optimization Model Technical Documentation<a class="headerlink" href="#quest-diagnostics-optimization-model-technical-documentation" title="Permalink to this heading">#</a></h1>
+<p>Documentation of the optimization algorithm created to optimize Quest Diagnostics business units inventories.</p>
+<div class="section" id="changelog">
+<h2>Changelog<a class="headerlink" href="#changelog" title="Permalink to this heading">#</a></h2>
+<div class="section" id="id1">
+<h3>[1.1.3] - 2021-02-19<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h3>
+<div class="section" id="added">
+<h4>Added<a class="headerlink" href="#added" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>New logic for determining if lot is currently in use, inventory or not found at receiving business units. The new code can be found at <code class="xref py py-meth docutils literal notranslate"><span class="pre">optimization.datatools.extra_output.FindLots</span></code>.</p></li>
+<li><p>Created Unit tests for validating new lot usage status. Code can be found at <code class="xref py py-meth docutils literal notranslate"><span class="pre">optimization.tests.unittest_test_extra_output</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="changed">
+<h4>Changed<a class="headerlink" href="#changed" title="Permalink to this heading">#</a></h4>
+<ul class="simple">
+<li><p>Clarified docstrings on all source code <code class="docutils literal notranslate"><span class="pre">modules</span></code> and <code class="docutils literal notranslate"><span class="pre">submodules</span></code>.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="how-the-model-works">
+<h2>How the Model Works<a class="headerlink" href="#how-the-model-works" title="Permalink to this heading">#</a></h2>
+<p>The optimization model comprises of multiple scripts that are combined to generate the transfer recommendation between BU’s report.</p>
+<p>In summary, the process starts by <strong>ingesting the necessary input files</strong> this process is done at the <code class="xref py py-meth docutils literal notranslate"><span class="pre">optimization.datatools.pipelines</span></code>.
+There, we make sure that all the required fields are in place and also <strong>validate critical columns</strong>. Afterwards, if no fields present critical errors, the module proceeds to
+<strong>calculate all necessary columns required to formulate the optimization problem</strong>. Then the output from the data ingestion and manipulation is passed on to
+<code class="xref py py-meth docutils literal notranslate"><span class="pre">optimization.solspace</span></code> that generates a <strong>solution matrix for every unique item ID</strong> in the inventory reports. Finally the output matrix is fed
+to the <code class="xref py py-meth docutils literal notranslate"><span class="pre">optimization.model.optimizer</span></code>. Finally, the <strong>problem is formulated</strong>, and based on the <strong>defined objective function</strong>; the model generates
+the <strong>report with transfer recommendations for every item ID</strong>.</p>
+</div>
+<div class="section" id="what-is-this-documentation-for">
+<h2>What is This Documentation for?<a class="headerlink" href="#what-is-this-documentation-for" title="Permalink to this heading">#</a></h2>
+<p>This documentation is best used as reference guide. Here we specify how the optimization model <code class="docutils literal notranslate"><span class="pre">modules</span></code>, <code class="docutils literal notranslate"><span class="pre">classes</span></code>, and <code class="docutils literal notranslate"><span class="pre">functions</span></code> work to generate the
+transfer recommendations. It should not be used though, as a step-by-step guide on how an optimization model works.</p>
+<p>Inside this documentation you will also find some configuration options that can be used for changing certain aspects of the model.</p>
+<div class="toctree-wrapper compound">
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="source/optimization.html">Optimization Model</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="source/optimization.model.html">Model</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="source/optimization.model.html#main">Main</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source/optimization.model.html#optimizer">Optimizer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source/optimization.model.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="source/optimization.datatools.html">Datatools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="source/optimization.datatools.html#dataprep">Dataprep</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source/optimization.datatools.html#extra-output">Extra Output</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source/optimization.datatools.html#pipelines">Pipelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source/optimization.datatools.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="source/optimization.opt_tools.html">Optimization Tools</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="source/optimization.opt_tools.html#auxiliary-functions">Auxiliary Functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source/optimization.opt_tools.html#load-data">Load Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source/optimization.opt_tools.html#module-contents">Module Contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="source/optimization.configuration.html">Model Configurations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="source/optimization.configuration.html#basic-configurations">Basic Configurations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source/optimization.configuration.html#columns-used-by-the-model">Columns Used by the Model</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="source/optimization.tests.html">Tests</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="source/optimization.tests.html#extra-outputs-unittests">Extra Outputs Unittests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source/optimization.tests.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="source/optimization.html#solution-space">Solution Space</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source/optimization.html#constants">Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source/optimization.html#debug">Debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source/optimization.html#tests">Tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source/optimization.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="source/guides.html">User Guides</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="source/guides.html#model-installation">Model Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="source/guides.html#installing-using-conda-environment">Installing Using Conda Environment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="source/guides.html#running-locally-without-installing-the-model">Running Locally Without Installing the Model</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading">#</a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</div>
+
+
+                </article>
+              
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="right-next"
+       href="source/optimization.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Optimization Model</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Quest Diagnostics Optimization Model Technical Documentation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#changelog">Changelog</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">[1.1.3] - 2021-02-19</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#added">Added</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#changed">Changed</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#how-the-model-works">How the Model Works</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-this-documentation-for">What is This Documentation for?</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#indices-and-tables">Indices and tables</a></li>
+</ul>
+
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div class="tocsection sourcelink">
+    <a href="_sources/index.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2020-2021 Quest Diagnostics Incorporated. All rights reserved..
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.0.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

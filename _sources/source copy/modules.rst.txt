@@ -1,0 +1,9 @@
+Optimization
+============
+
+.. toctree::
+   :maxdepth: 2
+
+   optimization.surplus
+   optimization.opt_tools
+   optimization.datatools

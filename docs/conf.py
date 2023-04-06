@@ -37,8 +37,8 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.graphviz',
     'sphinx.ext.inheritance_diagram',
-    'sphinx_pyreverse',
-    'jupyter_sphinx',
+#     'sphinx_pyreverse',
+#     'jupyter_sphinx',
 ]
 
 # Napoleon settings

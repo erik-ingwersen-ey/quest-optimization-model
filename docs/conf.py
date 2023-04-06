@@ -13,6 +13,7 @@
 import os
 import sys
 sys.path.insert(0, os.path.abspath('../optimization'))
+os.system("pip install sphinx-pyreverse")
 
 
 # -- Project information -----------------------------------------------------
@@ -37,7 +38,7 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.graphviz',
     'sphinx.ext.inheritance_diagram',
-#     'sphinx_pyreverse',
+    'sphinx_pyreverse',
 #     'jupyter_sphinx',
 ]
 

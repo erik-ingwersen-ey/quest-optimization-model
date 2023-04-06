@@ -15,6 +15,8 @@ import sys
 sys.path.insert(0, os.path.abspath('../optimization'))
 os.system("pip install sphinx-pyreverse")
 os.system("pip install pydata-sphinx-theme")
+os.system("pip install -U sphinxcontrib-htmlhelp")
+os.system("pip install -U sphinxcontrib-serializinghtml")
 
 # -- Project information -----------------------------------------------------
 
